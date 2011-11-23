@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0
+description: Gigya 
+author: Jeff English
+license: Appcelerator Commercial License
+copyright: Copyright (c) 2010-2011 by Appcelerator, Inc.
+
+
+# these should not be edited
+name: gigya
+moduleid: ti.gigya
+guid: e339acfc-b5be-4ee5-886a-3548524d1eb4
+platform: iphone
+minsdk: 1.7.5
