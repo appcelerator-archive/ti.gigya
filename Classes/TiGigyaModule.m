@@ -350,6 +350,7 @@ MAKE_SYSTEM_STR(RESPONSE,@"response")
 {
     if ([self _hasListeners:self.RESPONSE]) {
         NSDictionary *event = [NSDictionary dictionaryWithObjectsAndKeys:
+                               method, @"method",
                                NUMINT(response.errorCode), @"errorCode",
                                [TiGigyaModule dataFromGSObject:response.data], @"data",
                                response.ResponseText, @"responseText",
