@@ -20,9 +20,10 @@ function showEvent(e)
 
 function showResponse(e)
 {
+    Ti.API.info("Method: " + e.method);
 	Ti.API.info("Error code: " + e.errorCode);
-	Ti.API.info("Error message: " + e.errorMessag);
-	Ti.API.info("Response Text: " + e.responeText);
+	Ti.API.info("Error message: " + e.errorMessage);
+	Ti.API.info("Response Text: " + e.responseText);
 	Ti.API.info("Data: " + JSON.stringify(e.data));
 }
 
