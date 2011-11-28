@@ -20,6 +20,8 @@ var Gigya = require('ti.gigya');
 // Gigya.apiKey = '<< YOUR_API_KEY >>>';
 Gigya.apiKey = '2_CKUNP-SKP_62hnPDaka5WPym4t3LltDtz2OgwU_KnmdnxL1VQAYkZ9tcKbYhNlIN';
 
+var u = Ti.Android != undefined ? 'dp' : 0;
+
 var win = Ti.UI.createWindow({
     backgroundColor: 'white'
 });
@@ -29,11 +31,11 @@ var win = Ti.UI.createWindow({
  */
 var loginButton = Ti.UI.createLabel({
     text: 'Login',
-    top: 5, right: 5, left: 5,
-    height: 38,
+    top: 5 + u, right: 5 + u, left: 5 + u,
+    height: 38 + u,
     textAlign: 'center', font: { fontWeight: 'bold', fontSize: 14 },
     color: '#fff', shadowColor: '#000', shadowOffset: { x: 0, y: -1 },
-    backgroundImage: 'button-positive.png', backgroundLeftCap: 11
+    backgroundImage: 'button-positive.png', backgroundLeftCap: 11 + u
 });
 loginButton.addEventListener('click', function (e) {
     Gigya.showLoginUI({
@@ -49,11 +51,11 @@ loginButton.addEventListener('click', function (e) {
 
 var addConnectionsButton = Ti.UI.createLabel({
     text: 'Add Connections',
-    top: 5, right: 100, left: 5,
-    height: 38,
+    top: 5 + u, right: 100 + u, left: 5 + u,
+    height: 38 + u,
     textAlign: 'center', font: { fontWeight: 'bold', fontSize: 14 },
     color: '#fff', shadowColor: '#000', shadowOffset: { x: 0, y: -1 },
-    backgroundImage: 'button-positive.png', backgroundLeftCap: 11
+    backgroundImage: 'button-positive.png', backgroundLeftCap: 11 + u
 });
 addConnectionsButton.addEventListener('click', function (e) {
     Gigya.showAddConnectionsUI({
@@ -64,11 +66,11 @@ addConnectionsButton.addEventListener('click', function (e) {
 
 var logoutButton = Ti.UI.createLabel({
     text: 'Logout',
-    top: 5, right: 5,
-    width: 90, height: 38,
+    top: 5 + u, right: 5 + u,
+    width: 90 + u, height: 38 + u,
     textAlign: 'center', font: { fontWeight: 'bold', fontSize: 14 },
     color: '#fff', shadowColor: '#000', shadowOffset: { x: 0, y: -1 },
-    backgroundImage: 'button-negative.png', backgroundLeftCap: 11
+    backgroundImage: 'button-negative.png', backgroundLeftCap: 11 + u
 });
 logoutButton.addEventListener('click', function (e) {
     Gigya.logout();
@@ -79,8 +81,8 @@ logoutButton.addEventListener('click', function (e) {
  */
 var statusTextField = Ti.UI.createTextField({
     hintText: 'Update Your Status',
-    height: 30,
-    top: 48, right: 5, left: 5,
+    height: 30 + u,
+    top: 48 + u, right: 5 + u, left: 5 + u,
     borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
     appearance: Ti.UI.KEYBOARD_APPEARANCE_ALERT,
     returnKeyType: Ti.UI.RETURNKEY_SEND
@@ -122,13 +124,13 @@ function populateFriends(rawFriends) {
         });
         friendView.add(Ti.UI.createImageView({
             image: friend.thumbnailURL,
-            width: 48, height: 48,
-            left: 5, top: 5
+            width: 48 + u, height: 48 + u,
+            left: 5 + u, top: 5 + u
         }));
         friendView.add(Ti.UI.createLabel({
             text: friend.nickname,
-            top: 5, left: 58,
-            height: 22,
+            top: 5 + u, left: 58 + u,
+            height: 22 + u,
             textAlign: 'left', font: { fontWeight: 'bold', fontSize: 18 }
         }));
         var identities = 'Identities: ';
@@ -137,8 +139,8 @@ function populateFriends(rawFriends) {
         }
         friendView.add(Ti.UI.createLabel({
             text: identities.substr(0, identities.length - 2),
-            top: 32, left: 58,
-            height: 16,
+            top: 32 + u, left: 58 + u,
+            height: 16 + u,
             textAlign: 'left', font: { fontSize: 14 }
         }));
         friends.push(friendView);
@@ -146,7 +148,7 @@ function populateFriends(rawFriends) {
     friendsTable.setData(friends);
 }
 var friendsTable = Ti.UI.createTableView({
-    top: 83, rowHeight: 58
+    top: 83 + u, rowHeight: 58 + u
 });
 friendsTable.addEventListener('click', function (evt) {
     if (evt.row && evt.row.hasChild) {
