@@ -293,6 +293,11 @@ MAKE_SYSTEM_STR(ADDCONNECTIONSUI_DID_LOAD,@"addconnectionsui_did_load")
     [self.gsAPI login:gsObj delegate:self context:nil];
 }
 
+-(id)loggedIn
+{
+    return NUMBOOL([self.gsAPI getSession] != nil);
+}
+
 -(void)logout:(id)args
 {
     ENSURE_UI_THREAD_1_ARG(args)
