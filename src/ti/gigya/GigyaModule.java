@@ -248,6 +248,11 @@ public class GigyaModule extends KrollModule
 		} 
 	}
 	
+	@Kroll.getProperty @Kroll.method
+	public boolean loggedIn(KrollInvocation invocation) {
+		return getGSAPI(invocation).getSession() != null;
+	}
+	
 	@Kroll.method(runOnUiThread=true)
 	public void logout(KrollInvocation invocation)
 	{
