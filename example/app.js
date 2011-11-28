@@ -1,129 +1,208 @@
-// This is a test harness for your module
-// You should do something interesting in this harness 
-// to test out the module and to provide instructions 
-// to users on how to use it by example.
+/*
+ This example will show you the basics of interacting with Gigya through Titanium Mobile.
 
+ Gigya's workflow goes like this:
 
-// open a single window
-var window = Ti.UI.createWindow({
-	backgroundColor:'white',
-	layout: 'vertical'
+ 1) Log in to at least one social site.
+ 2) Send requests to Gigya in order to get or set status, photos, friends, etc.
+ 3) Log out.
+
+ We'll demonstrate this with a very simple UI, 3 part UI:
+
+ 1) Up top, the user can log in and out.
+ 2) Right below that, we'll give the user a text box to update their status.
+ 3) The rest will be a list of the user's friends.
+
+ Let's get to it!
+ */
+
+var Gigya = require('ti.gigya');
+// Gigya.apiKey = '<< YOUR_API_KEY >>>';
+Gigya.apiKey = '2_CKUNP-SKP_62hnPDaka5WPym4t3LltDtz2OgwU_KnmdnxL1VQAYkZ9tcKbYhNlIN';
+
+var win = Ti.UI.createWindow({
+    backgroundColor: 'white'
 });
-var label = Ti.UI.createLabel();
-window.add(label);
-window.open();
 
-function showEvent(e) 
-{
-	Ti.API.info(JSON.stringify(e));
+/*
+ 1) Logging in, adding connections, and logging out.
+ */
+var loginButton = Ti.UI.createLabel({
+    text: 'Login',
+    top: 5, right: 5, left: 5,
+    height: 38,
+    textAlign: 'center', font: { fontWeight: 'bold', fontSize: 14 },
+    color: '#fff', shadowColor: '#000', shadowOffset: { x: 0, y: -1 },
+    backgroundImage: 'button-positive.png', backgroundLeftCap: 11
+});
+loginButton.addEventListener('click', function (e) {
+    Gigya.showLoginUI({
+        enabledProviders: 'twitter, yahoo',
+        captionText: 'Login',
+        forceAuthentication: true
+    });
+    /*
+     Note: if you want the user to log in to a particular site, you can use the simpler "login" method like this:
+     Gigya.login({ provider: 'twitter' });
+     */
+});
+
+var addConnectionsButton = Ti.UI.createLabel({
+    text: 'Add Connections',
+    top: 5, right: 100, left: 5,
+    height: 38,
+    textAlign: 'center', font: { fontWeight: 'bold', fontSize: 14 },
+    color: '#fff', shadowColor: '#000', shadowOffset: { x: 0, y: -1 },
+    backgroundImage: 'button-positive.png', backgroundLeftCap: 11
+});
+addConnectionsButton.addEventListener('click', function (e) {
+    Gigya.showAddConnectionsUI({
+        disabledProviders: 'myspace',
+        captionText: 'Add Connections'
+    });
+});
+
+var logoutButton = Ti.UI.createLabel({
+    text: 'Logout',
+    top: 5, right: 5,
+    width: 90, height: 38,
+    textAlign: 'center', font: { fontWeight: 'bold', fontSize: 14 },
+    color: '#fff', shadowColor: '#000', shadowOffset: { x: 0, y: -1 },
+    backgroundImage: 'button-negative.png', backgroundLeftCap: 11
+});
+logoutButton.addEventListener('click', function (e) {
+    Gigya.logout();
+});
+
+/*
+ 2) Updating the user's status.
+ */
+var statusTextField = Ti.UI.createTextField({
+    hintText: 'Update Your Status',
+    height: 30,
+    top: 48, right: 5, left: 5,
+    borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+    appearance: Ti.UI.KEYBOARD_APPEARANCE_ALERT,
+    returnKeyType: Ti.UI.RETURNKEY_SEND
+});
+statusTextField.addEventListener('return', function (evt) {
+    statusTextField.blur();
+    if (statusTextField.value.length == 0) {
+        return;
+    }
+    Gigya.sendRequest({
+        method: 'socialize.setStatus',
+        params: {
+            status: statusTextField.value
+        },
+        useHTTPS: false
+    });
+    statusTextField.value = '';
+});
+
+/*
+ 3) A list of the user's friends.
+ */
+function requestFriends() {
+    Gigya.sendRequest({
+        method: 'socialize.getFriendsInfo',
+        params: {
+            detailLevel: 'basic'
+        },
+        useHTTPS: false
+    });
+}
+function populateFriends(rawFriends) {
+    Ti.API.info(rawFriends);
+    var friends = [];
+    for (var i = 0; i < rawFriends.length; i++) {
+        var friend = rawFriends[i];
+        var friendView = Ti.UI.createTableViewRow({
+            hasChild: true, data: friend
+        });
+        friendView.add(Ti.UI.createImageView({
+            image: friend.thumbnailURL,
+            width: 48, height: 48,
+            left: 5, top: 5
+        }));
+        friendView.add(Ti.UI.createLabel({
+            text: friend.nickname,
+            top: 5, left: 58,
+            height: 22,
+            textAlign: 'left', font: { fontWeight: 'bold', fontSize: 18 }
+        }));
+        var identities = 'Identities: ';
+        for (var j = 0; j < friend.identities.length; j++) {
+            identities += friend.identities[j].provider.charAt(0).toUpperCase() + friend.identities[j].provider.slice(1) + ', ';
+        }
+        friendView.add(Ti.UI.createLabel({
+            text: identities.substr(0, identities.length - 2),
+            top: 32, left: 58,
+            height: 16,
+            textAlign: 'left', font: { fontSize: 14 }
+        }));
+        friends.push(friendView);
+    }
+    friendsTable.setData(friends);
+}
+var friendsTable = Ti.UI.createTableView({
+    top: 83, rowHeight: 58
+});
+friendsTable.addEventListener('click', function (evt) {
+    if (evt.row && evt.row.hasChild) {
+        alert(evt.row.data);
+    }
+});
+
+/*
+ The Gigya module responds to requests that we send through this one event below:
+ */
+Gigya.addEventListener(Gigya.RESPONSE, function (evt) {
+    if (!evt.data || evt.data.errorCode) {
+        return alert('Whoops!' + JSON.stringify(evt));
+    }
+    if (evt.data.friends) {
+        populateFriends(evt.data.friends);
+    }
+    else if (evt.data.providerPostIDs) {
+        alert('Status Set!');
+    }
+});
+
+/*
+ Based on if the user is logged in or not, we want to show different buttons and UI to them.
+ */
+function showLoggedOutButtons() {
+    win.add(loginButton);
+    win.remove(addConnectionsButton);
+    win.remove(logoutButton);
+    win.remove(statusTextField);
+    win.remove(friendsTable);
 }
 
-function showResponse(e)
-{
-    Ti.API.info("Method: " + e.method);
-	Ti.API.info("Error code: " + e.errorCode);
-	Ti.API.info("Error message: " + e.errorMessage);
-	Ti.API.info("Response Text: " + e.responseText);
-	Ti.API.info("Data: " + JSON.stringify(e.data));
+function showLoggedInButtons() {
+    win.remove(loginButton);
+    win.add(addConnectionsButton);
+    win.add(logoutButton);
+    win.add(statusTextField);
+    win.add(friendsTable);
+    requestFriends();
 }
 
-// TODO: write your module tests here
-var gigya = require('ti.gigya');
-Ti.API.info("module is => " + gigya);
+Gigya.addEventListener(Gigya.DID_LOGIN, showLoggedInButtons);
+Gigya.addEventListener(Gigya.DID_LOGOUT, showLoggedOutButtons);
+Gigya.addEventListener(Gigya.DID_ADD_CONNECTION, requestFriends);
+Gigya.addEventListener(Gigya.DID_REMOVE_CONNECTION, requestFriends);
 
-// gigya.apiKey = << YOUR_API_KEY >>>
-gigya.apiKey = "2_CKUNP-SKP_62hnPDaka5WPym4t3LltDtz2OgwU_KnmdnxL1VQAYkZ9tcKbYhNlIN";
+if (Gigya.loggedIn) {
+    showLoggedInButtons();
+}
+else {
+    showLoggedOutButtons();
+}
 
-gigya.addEventListener(gigya.DID_LOGIN, showEvent);
-gigya.addEventListener(gigya.DID_LOGOUT, showEvent);
-gigya.addEventListener(gigya.DID_ADD_CONNECTION, showEvent);
-gigya.addEventListener(gigya.DID_REMOVE_CONNECTION, showEvent);
-
-var loginBtn = Ti.UI.createButton({
-	title: 'Login',
-	width: 200,
-	height: 40,
-	top: 4, left: 4
-});
-window.add(loginBtn);
-
-loginBtn.addEventListener('click', function(e){
-	//gigya.showLoginUI(JSON.stringify(options));
-	gigya.showLoginUI({
-		enabledProviders: "facebook, twitter, yahoo",
-		captionText: "My Connections",
-		forceAuthentication: true
-	});
-});
-gigya.addEventListener(gigya.LOGINUI_DID_LOGIN, showEvent);
-gigya.addEventListener(gigya.LOGINUI_DID_CLOSE, showEvent);
-gigya.addEventListener(gigya.LOGINUI_DID_FAIL, showEvent);
-gigya.addEventListener(gigya.LOGINUI_DID_LOAD, showEvent);
-
-var addConnectionsBtn = Ti.UI.createButton({
-	title: 'Add Connections',
-	width: 200,
-	height: 40,
-	top: 4, left: 4
-});
-window.add(addConnectionsBtn);
-
-addConnectionsBtn.addEventListener('click', function(e){
-	gigya.showAddConnectionsUI({
-		disabledProviders: 'myspace',
-		captionText: "Add My Connection"
-	});
-});
-gigya.addEventListener(gigya.ADDCONNECTIONSUI_DID_CONNECT, showEvent);
-gigya.addEventListener(gigya.ADDCONNECTIONSUI_DID_CLOSE, showEvent);
-gigya.addEventListener(gigya.ADDCONNECTIONSUI_DID_FAIL, showEvent);
-gigya.addEventListener(gigya.ADDCONNECTIONSUI_DID_LOAD, showEvent);
-
-var sendRequestBtn = Ti.UI.createButton({
-	title: 'sendRequest',
-	width: 200,
-	height: 40,
-	top: 4, left: 4
-});
-window.add(sendRequestBtn);
-
-sendRequestBtn.addEventListener('click', function(e){
-	gigya.sendRequest({
-		method: 'socialize.getFriendsInfo',
-		//method: 'socialize.setStatus',
-		params: {
-			//status: 'Test status sent from the Gigya module'
-			detailLevel: "basic"
-		},
-		useHTTPS: false
-	});
-})
-gigya.addEventListener(gigya.RESPONSE, showResponse);
-
-var loginToTwitterBtn = Ti.UI.createButton({
-	title: 'Login to Twitter',
-	width: 300,
-	height: 40,
-	top: 4, left: 4
-});
-window.add(loginToTwitterBtn);
-
-loginToTwitterBtn.addEventListener('click', function(e){
-	gigya.login({
-		provider: 'twitter'
-	});
-});
-
-var logoutBtn = Ti.UI.createButton({
-	title: 'Logout',
-	width: 300,
-	height: 40,
-	top: 4, left: 4
-});
-window.add(logoutBtn);
-
-logoutBtn.addEventListener('click', function(e){
-	gigya.logout();
-});
-
-
+/*
+ That's it! Check out our documentation and Gigya's website to find out more.
+ http://www.gigya.com/mobile/
+ */
+win.open();
