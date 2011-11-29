@@ -5,11 +5,13 @@
  * Please see the LICENSE included with this distribution for details.
  *
  */
-package ti.gigya;
+package ti.gigya.listeners;
 
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
-import org.appcelerator.titanium.util.Log;
+
+import ti.gigya.Constants;
+import ti.gigya.Util;
 
 import com.gigya.socialize.GSObject;
 import com.gigya.socialize.android.event.GSEventListener;
@@ -17,6 +19,7 @@ import com.gigya.socialize.android.event.GSEventListener;
 public class GlobalEventListener implements GSEventListener 
 {
 	private final KrollProxy _proxy;
+	
 	public GlobalEventListener(final KrollProxy proxy)
 	{
 		_proxy = proxy;
@@ -27,7 +30,7 @@ public class GlobalEventListener implements GSEventListener
 		if (_proxy.hasListeners(Constants.DID_LOGIN)) {
 			KrollDict event = new KrollDict();
 			event.put("provider", provider);
-			event.put("user", Util.dataFromGSObject(user));
+			event.put("data", Util.dataFromGSObject(user));
 			
 			_proxy.fireEvent (Constants.DID_LOGIN, event);
 		}
@@ -47,7 +50,7 @@ public class GlobalEventListener implements GSEventListener
 		if (_proxy.hasListeners(Constants.DID_ADD_CONNECTION)) {
 			KrollDict event = new KrollDict();
 			event.put("provider", provider);
-			event.put("user", Util.dataFromGSObject(user));
+			event.put("data", Util.dataFromGSObject(user));
 			
 			_proxy.fireEvent (Constants.DID_ADD_CONNECTION, event);
 		}

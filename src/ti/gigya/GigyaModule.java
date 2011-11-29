@@ -16,15 +16,15 @@ import org.appcelerator.titanium.TiContext;
 import org.appcelerator.titanium.util.Log;
 import org.appcelerator.titanium.util.TiConvert;
 
+import android.app.Activity;
+
+import com.gigya.socialize.GSObject;
 import com.gigya.socialize.android.GSAPI;
 
-import ti.gigya.calls.Login;
-import ti.gigya.calls.Logout;
-import ti.gigya.calls.SendRequest;
-import ti.gigya.calls.ShowAddConnectionsUI;
-import ti.gigya.calls.ShowLoginUI;
-import ti.gigya.calls.AddConnection;
-import ti.gigya.calls.RemoveConnection;
+import ti.gigya.listeners.ConnectUIListener;
+import ti.gigya.listeners.GlobalEventListener;
+import ti.gigya.listeners.LoginUIListener;
+import ti.gigya.listeners.ResponseListener;
 
 @Kroll.module(name="Gigya", id="ti.gigya")
 public class GigyaModule extends KrollModule
@@ -35,7 +35,7 @@ public class GigyaModule extends KrollModule
 
 	// GSAPI singleton -- allocated on first use -- don't use static on objects in Android
 	private GSAPI _gsAPI = null;
-	public GSAPI getGSAPI(KrollInvocation invocation) 
+	public synchronized GSAPI getGSAPI(KrollInvocation invocation) 
 	{
 		if (_gsAPI == null) {
 			String apiKey = TiConvert.toString(getProperty("apiKey"));
@@ -52,8 +52,18 @@ public class GigyaModule extends KrollModule
 		return _gsAPI;
 	}
 	
+	@Override
+	public void onDestroy(Activity activity)
+	{
+		if (_gsAPI != null) {
+			_gsAPI.logout();
+		}
+		
+		super.onDestroy(activity);
+	}
+	
 /* ---------------------------------------------------------------------------------
-   Gigya field support
+   Gigya static properties
 --------------------------------------------------------------------------------- */
 	
 	@Kroll.getProperty
@@ -109,9 +119,16 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 	
 	@Kroll.method(runOnUiThread=true)
-	public void showLoginUI(KrollInvocation invocation, Object args)
+	public void showLoginUI(KrollInvocation invocation, KrollDict args)
 	{
-		ShowLoginUI.call(this, getGSAPI(invocation), args);
+		GSAPI gsAPI = getGSAPI(invocation);
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+		
+		try {
+			gsAPI.showLoginUI(gsObj, new LoginUIListener(this, args), null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 /* ---------------------------------------------------------------------------------
@@ -119,9 +136,16 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 
 	@Kroll.method(runOnUiThread=true)
-	public void showAddConnectionsUI(KrollInvocation invocation, Object args)
+	public void showAddConnectionsUI(KrollInvocation invocation, KrollDict args)
 	{
-		ShowAddConnectionsUI.call(this, getGSAPI(invocation), args);
+		GSAPI gsAPI = getGSAPI(invocation);
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+
+		try {
+			gsAPI.showAddConnectionsUI(gsObj, new ConnectUIListener(this, args), null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 /* ---------------------------------------------------------------------------------
@@ -129,15 +153,28 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 	
 	@Kroll.method(runOnUiThread=true)
-	public void login(KrollInvocation invocation, Object args)
+	public void login(KrollInvocation invocation, KrollDict args)
 	{
-		Login.call(this, getGSAPI(invocation), args);
+		GSAPI gsAPI = getGSAPI(invocation);
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+		
+		try {
+			gsAPI.login(gsObj, new ResponseListener(this, args), null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 	}
 	
 	@Kroll.method(runOnUiThread=true)
 	public void logout(KrollInvocation invocation)
 	{
-		Logout.call(this, getGSAPI(invocation), null);
+		GSAPI gsAPI = getGSAPI(invocation);
+		
+		try {
+			gsAPI.logout();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Kroll.getProperty @Kroll.method
@@ -151,15 +188,30 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 	
 	@Kroll.method(runOnUiThread=true)
-	public void AddConnection(KrollInvocation invocation, Object args)
+	public void AddConnection(KrollInvocation invocation, KrollDict args)
 	{
-		AddConnection.call(this, getGSAPI(invocation), args);
+		GSAPI gsAPI = getGSAPI(invocation);
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+		
+		try {
+			gsAPI.addConnection(gsObj, new ResponseListener(this, args), null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Kroll.method(runOnUiThread=true)
-	public void RemoveConnection(KrollInvocation invocation, Object args)
+	public void RemoveConnection(KrollInvocation invocation, KrollDict args)
 	{
-		RemoveConnection.call(this, getGSAPI(invocation), args);
+		GSAPI gsAPI = getGSAPI(invocation);
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+		
+		try {
+			// NOTE: This method name is misspelled in the Gigya SDK
+			gsAPI.removeConnetion(gsObj, new ResponseListener(this, args), null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 /* ---------------------------------------------------------------------------------
@@ -170,21 +222,23 @@ public class GigyaModule extends KrollModule
 	public void sendRequest(KrollInvocation invocation, KrollDict args)
 	{
 	    // NOTE: This must be called on the UI thread, even though it doesn't perform any UI
-		SendRequest.call(this, getGSAPI(invocation), args);
+		GSAPI gsAPI = getGSAPI(invocation);
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+		
+		String method = args.getString("method");
+		boolean useHTTPS = args.optBoolean("useHTTPS", false);
+		
+		try {
+			gsAPI.sendRequest(method, gsObj, useHTTPS, new ResponseListener(this, args), null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 /* ---------------------------------------------------------------------------------
    Public Event Names
    --------------------------------------------------------------------------------- */
-	@Kroll.constant public static final String LOGINUI_DID_LOGIN = Constants.LOGINUI_DID_LOGIN;
-	@Kroll.constant public static final String LOGINUI_DID_CLOSE = Constants.LOGINUI_DID_CLOSE;
-	@Kroll.constant public static final String LOGINUI_DID_FAIL = Constants.LOGINUI_DID_FAIL;
-	@Kroll.constant public static final String LOGINUI_DID_LOAD = Constants.LOGINUI_DID_LOAD;
-	@Kroll.constant public static final String ADDCONNECTIONSUI_DID_CONNECT = Constants.ADDCONNECTIONSUI_DID_CONNECT;
-	@Kroll.constant public static final String ADDCONNECTIONSUI_DID_CLOSE = Constants.ADDCONNECTIONSUI_DID_CLOSE;
-	@Kroll.constant public static final String ADDCONNECTIONSUI_DID_FAIL = Constants.ADDCONNECTIONSUI_DID_FAIL;
-	@Kroll.constant public static final String ADDCONNECTIONSUI_DID_LOAD = Constants.ADDCONNECTIONSUI_DID_LOAD;
-	@Kroll.constant public static final String RESPONSE = Constants.RESPONSE;
+
 	@Kroll.constant public static final String DID_LOGIN = Constants.DID_LOGIN;
 	@Kroll.constant public static final String DID_LOGOUT = Constants.DID_LOGOUT;
 	@Kroll.constant public static final String DID_ADD_CONNECTION = Constants.DID_ADD_CONNECTION;
