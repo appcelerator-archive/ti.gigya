@@ -7,7 +7,6 @@
 	<classpathentry kind="lib" path="/usr/android-sdk/add-ons/addon_google_apis_google_inc_7/libs/maps.jar"/>
 	<classpathentry kind="lib" path="/Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/titanium.jar"/>
 	<classpathentry kind="lib" path="/Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/js.jar"/>
-	<classpathentry kind="lib" path="/Users/jenglish/Titanium/mobile_modules/android/gigya/lib/GSAndroidSDK.jar"/>
 	<classpathentry kind="lib" path="lib/GSAndroidSDK.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
