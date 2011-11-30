@@ -4,17 +4,13 @@
  * and licensed under the Apache Public License (version 2)
  */
 
-#import "TiModule.h"
-
 #import "GSAPI.h"
+#import "TiGigyaDelegate.h"
 
-@interface TiGigyaModule : TiModule
+@interface TiGigyaResponseDelegate : TiGigyaDelegate<GSResponseDelegate>
 {
-@private
-    GSAPI* _gsAPI;
 }
 
-@property(readonly,retain) GSAPI* gsAPI;
-@property(readwrite,retain) NSString* apiKey;
++(id)delegateWithProxyAndArgs:(TiProxy*)proxy args:(NSDictionary*)args;
 
 @end

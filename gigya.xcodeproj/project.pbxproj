@@ -66,6 +66,22 @@
 		A2942D211476BB5400868112 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF91476BB5400868112 /* SBJsonParser.m */; };
 		A2942D221476BB5400868112 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CFA1476BB5400868112 /* SBJsonWriter.h */; };
 		A2942D231476BB5400868112 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CFB1476BB5400868112 /* SBJsonWriter.m */; };
+		A2EA0FBE14858F2A00D18F3A /* TiGigyaLoginUIDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FBC14858F2A00D18F3A /* TiGigyaLoginUIDelegate.h */; };
+		A2EA0FBF14858F2A00D18F3A /* TiGigyaLoginUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA0FBD14858F2A00D18F3A /* TiGigyaLoginUIDelegate.m */; };
+		A2EA0FC2148591FF00D18F3A /* TiGigyaDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FC0148591FF00D18F3A /* TiGigyaDelegate.h */; };
+		A2EA0FC3148591FF00D18F3A /* TiGigyaDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA0FC1148591FF00D18F3A /* TiGigyaDelegate.m */; };
+		A2EA0FC61485978B00D18F3A /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FC41485978B00D18F3A /* Util.h */; };
+		A2EA0FC71485978B00D18F3A /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA0FC51485978B00D18F3A /* Util.m */; };
+		A2EA0FCA1485A6A500D18F3A /* TiGigyaAddConnectionsUIDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FC81485A6A500D18F3A /* TiGigyaAddConnectionsUIDelegate.h */; };
+		A2EA0FCB1485A6A500D18F3A /* TiGigyaAddConnectionsUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA0FC91485A6A500D18F3A /* TiGigyaAddConnectionsUIDelegate.m */; };
+		A2EA0FD21485A86B00D18F3A /* TiGigyaResponseDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FD01485A86B00D18F3A /* TiGigyaResponseDelegate.h */; };
+		A2EA0FD31485A86B00D18F3A /* TiGigyaResponseDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA0FD11485A86B00D18F3A /* TiGigyaResponseDelegate.m */; };
+		A2EA0FD61485AD2000D18F3A /* TiGigyaEventDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FD41485AD1F00D18F3A /* TiGigyaEventDelegate.h */; };
+		A2EA0FD71485AD2000D18F3A /* TiGigyaEventDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA0FD51485AD1F00D18F3A /* TiGigyaEventDelegate.m */; };
+		A2EA0FDA1485B05500D18F3A /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FD81485B05500D18F3A /* Constants.h */; };
+		A2EA0FDB1485B05500D18F3A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA0FD91485B05500D18F3A /* Constants.m */; };
+		A2EA0FDE1486961E00D18F3A /* TiGigyaUIDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FDC1486961E00D18F3A /* TiGigyaUIDelegate.h */; };
+		A2EA0FDF1486961E00D18F3A /* TiGigyaUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA0FDD1486961E00D18F3A /* TiGigyaUIDelegate.m */; };
 		AA747D9F0F9514B9006C5449 /* TiGigya_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiGigya_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -128,6 +144,22 @@
 		A2942CF91476BB5400868112 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		A2942CFA1476BB5400868112 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		A2942CFB1476BB5400868112 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		A2EA0FBC14858F2A00D18F3A /* TiGigyaLoginUIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGigyaLoginUIDelegate.h; path = Delegates/TiGigyaLoginUIDelegate.h; sourceTree = "<group>"; };
+		A2EA0FBD14858F2A00D18F3A /* TiGigyaLoginUIDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGigyaLoginUIDelegate.m; path = Delegates/TiGigyaLoginUIDelegate.m; sourceTree = "<group>"; };
+		A2EA0FC0148591FF00D18F3A /* TiGigyaDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGigyaDelegate.h; path = Delegates/TiGigyaDelegate.h; sourceTree = "<group>"; };
+		A2EA0FC1148591FF00D18F3A /* TiGigyaDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGigyaDelegate.m; path = Delegates/TiGigyaDelegate.m; sourceTree = "<group>"; };
+		A2EA0FC41485978B00D18F3A /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Classes/Util.h; sourceTree = "<group>"; };
+		A2EA0FC51485978B00D18F3A /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Classes/Util.m; sourceTree = "<group>"; };
+		A2EA0FC81485A6A500D18F3A /* TiGigyaAddConnectionsUIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGigyaAddConnectionsUIDelegate.h; path = Delegates/TiGigyaAddConnectionsUIDelegate.h; sourceTree = "<group>"; };
+		A2EA0FC91485A6A500D18F3A /* TiGigyaAddConnectionsUIDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGigyaAddConnectionsUIDelegate.m; path = Delegates/TiGigyaAddConnectionsUIDelegate.m; sourceTree = "<group>"; };
+		A2EA0FD01485A86B00D18F3A /* TiGigyaResponseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGigyaResponseDelegate.h; path = Delegates/TiGigyaResponseDelegate.h; sourceTree = "<group>"; };
+		A2EA0FD11485A86B00D18F3A /* TiGigyaResponseDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGigyaResponseDelegate.m; path = Delegates/TiGigyaResponseDelegate.m; sourceTree = "<group>"; };
+		A2EA0FD41485AD1F00D18F3A /* TiGigyaEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGigyaEventDelegate.h; path = Delegates/TiGigyaEventDelegate.h; sourceTree = "<group>"; };
+		A2EA0FD51485AD1F00D18F3A /* TiGigyaEventDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGigyaEventDelegate.m; path = Delegates/TiGigyaEventDelegate.m; sourceTree = "<group>"; };
+		A2EA0FD81485B05500D18F3A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/Constants.h; sourceTree = "<group>"; };
+		A2EA0FD91485B05500D18F3A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Classes/Constants.m; sourceTree = "<group>"; };
+		A2EA0FDC1486961E00D18F3A /* TiGigyaUIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGigyaUIDelegate.h; path = Delegates/TiGigyaUIDelegate.h; sourceTree = "<group>"; };
+		A2EA0FDD1486961E00D18F3A /* TiGigyaUIDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGigyaUIDelegate.m; path = Delegates/TiGigyaUIDelegate.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* TiGigya_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigya_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libTiGigya.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiGigya.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,10 +208,15 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A2EA0FBA14858E9D00D18F3A /* Delegates */,
 				24DE9E0F11C5FE74003F90F6 /* TiGigyaModuleAssets.h */,
 				24DE9E1011C5FE74003F90F6 /* TiGigyaModuleAssets.m */,
 				24DD6CF71134B3F500162E58 /* TiGigyaModule.h */,
 				24DD6CF81134B3F500162E58 /* TiGigyaModule.m */,
+				A2EA0FC41485978B00D18F3A /* Util.h */,
+				A2EA0FC51485978B00D18F3A /* Util.m */,
+				A2EA0FD81485B05500D18F3A /* Constants.h */,
+				A2EA0FD91485B05500D18F3A /* Constants.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -258,6 +295,25 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		A2EA0FBA14858E9D00D18F3A /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				A2EA0FC0148591FF00D18F3A /* TiGigyaDelegate.h */,
+				A2EA0FC1148591FF00D18F3A /* TiGigyaDelegate.m */,
+				A2EA0FDC1486961E00D18F3A /* TiGigyaUIDelegate.h */,
+				A2EA0FDD1486961E00D18F3A /* TiGigyaUIDelegate.m */,
+				A2EA0FBC14858F2A00D18F3A /* TiGigyaLoginUIDelegate.h */,
+				A2EA0FBD14858F2A00D18F3A /* TiGigyaLoginUIDelegate.m */,
+				A2EA0FC81485A6A500D18F3A /* TiGigyaAddConnectionsUIDelegate.h */,
+				A2EA0FC91485A6A500D18F3A /* TiGigyaAddConnectionsUIDelegate.m */,
+				A2EA0FD01485A86B00D18F3A /* TiGigyaResponseDelegate.h */,
+				A2EA0FD11485A86B00D18F3A /* TiGigyaResponseDelegate.m */,
+				A2EA0FD41485AD1F00D18F3A /* TiGigyaEventDelegate.h */,
+				A2EA0FD51485AD1F00D18F3A /* TiGigyaEventDelegate.m */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -289,6 +345,14 @@
 				A2942D1E1476BB5400868112 /* SBJsonBase.h in Headers */,
 				A2942D201476BB5400868112 /* SBJsonParser.h in Headers */,
 				A2942D221476BB5400868112 /* SBJsonWriter.h in Headers */,
+				A2EA0FBE14858F2A00D18F3A /* TiGigyaLoginUIDelegate.h in Headers */,
+				A2EA0FC2148591FF00D18F3A /* TiGigyaDelegate.h in Headers */,
+				A2EA0FC61485978B00D18F3A /* Util.h in Headers */,
+				A2EA0FCA1485A6A500D18F3A /* TiGigyaAddConnectionsUIDelegate.h in Headers */,
+				A2EA0FD21485A86B00D18F3A /* TiGigyaResponseDelegate.h in Headers */,
+				A2EA0FD61485AD2000D18F3A /* TiGigyaEventDelegate.h in Headers */,
+				A2EA0FDA1485B05500D18F3A /* Constants.h in Headers */,
+				A2EA0FDE1486961E00D18F3A /* TiGigyaUIDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +381,9 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "gigya" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -380,6 +447,14 @@
 				A2942D1F1476BB5400868112 /* SBJsonBase.m in Sources */,
 				A2942D211476BB5400868112 /* SBJsonParser.m in Sources */,
 				A2942D231476BB5400868112 /* SBJsonWriter.m in Sources */,
+				A2EA0FBF14858F2A00D18F3A /* TiGigyaLoginUIDelegate.m in Sources */,
+				A2EA0FC3148591FF00D18F3A /* TiGigyaDelegate.m in Sources */,
+				A2EA0FC71485978B00D18F3A /* Util.m in Sources */,
+				A2EA0FCB1485A6A500D18F3A /* TiGigyaAddConnectionsUIDelegate.m in Sources */,
+				A2EA0FD31485A86B00D18F3A /* TiGigyaResponseDelegate.m in Sources */,
+				A2EA0FD71485AD2000D18F3A /* TiGigyaEventDelegate.m in Sources */,
+				A2EA0FDB1485B05500D18F3A /* Constants.m in Sources */,
+				A2EA0FDF1486961E00D18F3A /* TiGigyaUIDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
