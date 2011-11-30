@@ -112,7 +112,7 @@
     ENSURE_UI_THREAD_1_ARG(args)
     ENSURE_SINGLE_ARG(args,NSDictionary)
 
-    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:@"params"]];  
+    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:kParams]];  
     TiGigyaLoginUIDelegate *delegate = [TiGigyaLoginUIDelegate delegateWithProxyAndArgs:self args:args];
    
     [self.gsAPI showLoginUI:gsObj delegate:delegate context:nil];
@@ -130,7 +130,7 @@
     ENSURE_UI_THREAD_1_ARG(args)
     ENSURE_SINGLE_ARG(args,NSDictionary)   
     
-    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:@"params"]];  
+    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:kParams]];  
     TiGigyaAddConnectionsUIDelegate *delegate = [TiGigyaAddConnectionsUIDelegate delegateWithProxyAndArgs:self args:args];
 
     [self.gsAPI showAddConnectionsUI:gsObj delegate:delegate context:nil];
@@ -147,7 +147,7 @@
     ENSURE_UI_THREAD_1_ARG(args)
     ENSURE_SINGLE_ARG(args,NSDictionary)   
     
-    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:@"params"]];  
+    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:kParams]];  
     TiGigyaResponseDelegate *delegate = [TiGigyaResponseDelegate delegateWithProxyAndArgs:self args:args];
     
     [self.gsAPI login:gsObj delegate:delegate context:nil];
@@ -175,7 +175,7 @@
 {
     ENSURE_SINGLE_ARG(args,NSDictionary)    
     
-    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:@"params"]];  
+    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:kParams]];  
     TiGigyaResponseDelegate *delegate = [TiGigyaResponseDelegate delegateWithProxyAndArgs:self args:args];
     
     [self.gsAPI addConnection:gsObj delegate:delegate context:nil];
@@ -185,7 +185,7 @@
 {
     ENSURE_SINGLE_ARG(args,NSDictionary)    
     
-    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:@"params"]];  
+    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:kParams]];  
     TiGigyaResponseDelegate *delegate = [TiGigyaResponseDelegate delegateWithProxyAndArgs:self args:args];
     
     [self.gsAPI removeConnection:gsObj delegate:delegate context:nil];
@@ -204,9 +204,9 @@
     ENSURE_UI_THREAD_1_ARG(args)
     ENSURE_SINGLE_ARG(args,NSDictionary);
     
-    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:@"params"]];    
-    NSString* method = [TiUtils stringValue:@"method" properties:args def:@""];
-    BOOL useHTTPS = [TiUtils boolValue:@"useHTTPS" properties:args def:NO];
+    GSObject *gsObj = [Util GSObjectFromArgument:[args objectForKey:kParams]];    
+    NSString* method = [TiUtils stringValue:kMethod properties:args def:@""];
+    BOOL useHTTPS = [TiUtils boolValue:kUseHTTPS properties:args def:NO];
  
     TiGigyaResponseDelegate *delegate = [TiGigyaResponseDelegate delegateWithProxyAndArgs:self args:args];
 

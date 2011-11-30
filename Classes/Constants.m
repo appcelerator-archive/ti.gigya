@@ -21,3 +21,6 @@ NSString* const kProvider = @"provider";
 NSString* const kMethod = @"method";
 NSString* const kLoad = @"load";
 NSString* const kClose = @"close";
+NSString* const kParams = @"params";
+NSString* const kUseHTTPS = @"useHTTPS";
+NSString* const kAPIKey = @"apiKey";

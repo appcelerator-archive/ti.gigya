@@ -19,3 +19,6 @@ extern NSString* const kProvider;
 extern NSString* const kMethod;
 extern NSString* const kLoad;
 extern NSString* const kClose;
+extern NSString* const kParams;
+extern NSString* const kUseHTTPS;
+extern NSString* const kAPIKey;
