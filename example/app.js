@@ -17,8 +17,7 @@
  */
 
 var Gigya = require('ti.gigya');
-// Gigya.apiKey = '<< YOUR_API_KEY >>>';
-Gigya.apiKey = '2_CKUNP-SKP_62hnPDaka5WPym4t3LltDtz2OgwU_KnmdnxL1VQAYkZ9tcKbYhNlIN';
+Gigya.apiKey = '<<< YOUR_API_KEY >>>';
 
 var u = Ti.Android != undefined ? 'dp' : 0;
 
@@ -39,13 +38,35 @@ var loginButton = Ti.UI.createLabel({
 });
 loginButton.addEventListener('click', function (e) {
     Gigya.showLoginUI({
-        enabledProviders: 'twitter, yahoo',
-        captionText: 'Login',
-        forceAuthentication: true
-    });
+		params: {
+			//enabledProviders: 'twitter, yahoo',
+			captionText: 'Login',
+			forceAuthentication: true
+		},
+		// The following callbacks can be declared to get notified of specific 
+		// events for the showLoginUI call. They are optional parameters.
+		success: function (evt) {
+			Ti.API.info("Success");
+			Ti.API.info(JSON.stringify(evt));
+		},
+		error: function (evt) {
+			Ti.API.info("Error");
+			Ti.API.info(JSON.stringify(evt));
+		},
+		load: function(evt) {
+			Ti.API.info("Load");
+			Ti.API.info(JSON.stringify(evt));
+		},
+		close: function(evt) {
+			Ti.API.info("Close");
+			Ti.API.info(JSON.stringify(evt));
+		}    
+	});
     /*
      Note: if you want the user to log in to a particular site, you can use the simpler "login" method like this:
-     Gigya.login({ provider: 'twitter' });
+     Gigya.login({
+			params: { provider: 'twitter' }
+		});
      */
 });
 
@@ -59,8 +80,29 @@ var addConnectionsButton = Ti.UI.createLabel({
 });
 addConnectionsButton.addEventListener('click', function (e) {
     Gigya.showAddConnectionsUI({
-        disabledProviders: 'myspace',
-        captionText: 'Add Connections'
+		params: {
+			disabledProviders: 'myspace',
+			captionText: 'Add Connections'
+		},
+		// The following callbacks can be declared to get notified of specific 
+		// events for the showAddConnectionsUI call. They are optional parameters.
+		success: function (evt) {
+			Ti.API.info("Success");
+			Ti.API.info(JSON.stringify(evt));
+			// Updating the friends list is handled in the global event listener below
+		},
+		error: function (evt) {
+			Ti.API.info("Error");
+			Ti.API.info(JSON.stringify(evt));
+		},
+		load: function(evt) {
+			Ti.API.info("Load");
+			Ti.API.info(JSON.stringify(evt));
+		},
+		close: function(evt) {
+			Ti.API.info("Close");
+			Ti.API.info(JSON.stringify(evt));
+		}    
     });
 });
 
@@ -97,7 +139,20 @@ statusTextField.addEventListener('return', function (evt) {
         params: {
             status: statusTextField.value
         },
-        useHTTPS: false
+        useHTTPS: false,
+		// The following callbacks can be declared to get notified of specific 
+		// events for the sendRequest call. They are optional parameters.
+		success: function (evt) {
+			Ti.API.info("Success");
+			Ti.API.info(JSON.stringify(evt));
+			if (evt.data.providerPostIDs) {
+				alert('Status Set!');
+			}
+		},
+		error: function (evt) {
+			Ti.API.info("Error");
+			Ti.API.info(JSON.stringify(evt));
+		}
     });
     statusTextField.value = '';
 });
@@ -111,7 +166,20 @@ function requestFriends() {
         params: {
             detailLevel: 'basic'
         },
-        useHTTPS: false
+        useHTTPS: false,
+		// The following callbacks can be declared to get notified of specific 
+		// events for the sendRequest call. They are optional parameters.
+		success: function (evt) {
+			Ti.API.info("Success");
+			Ti.API.info(JSON.stringify(evt));
+			if (evt.data.friends) {
+				populateFriends(evt.data.friends);
+			}
+		},
+		error: function (evt) {
+			Ti.API.info("Error");
+			Ti.API.info(JSON.stringify(evt));
+		}
     });
 }
 function populateFriends(rawFriends) {
@@ -157,21 +225,6 @@ friendsTable.addEventListener('click', function (evt) {
 });
 
 /*
- The Gigya module responds to requests that we send through this one event below:
- */
-Gigya.addEventListener(Gigya.RESPONSE, function (evt) {
-    if (!evt.data || evt.data.errorCode) {
-        return alert('Whoops!' + JSON.stringify(evt));
-    }
-    if (evt.data.friends) {
-        populateFriends(evt.data.friends);
-    }
-    else if (evt.data.providerPostIDs) {
-        alert('Status Set!');
-    }
-});
-
-/*
  Based on if the user is logged in or not, we want to show different buttons and UI to them.
  */
 function showLoggedOutButtons() {
@@ -191,6 +244,9 @@ function showLoggedInButtons() {
     requestFriends();
 }
 
+/* 
+ Global events can be set on the module.
+*/
 Gigya.addEventListener(Gigya.DID_LOGIN, showLoggedInButtons);
 Gigya.addEventListener(Gigya.DID_LOGOUT, showLoggedOutButtons);
 Gigya.addEventListener(Gigya.DID_ADD_CONNECTION, requestFriends);
