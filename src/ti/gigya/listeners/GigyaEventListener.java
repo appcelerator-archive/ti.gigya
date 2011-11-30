@@ -16,11 +16,11 @@ import ti.gigya.Util;
 import com.gigya.socialize.GSObject;
 import com.gigya.socialize.android.event.GSEventListener;
 
-public class GlobalEventListener implements GSEventListener 
+public class GigyaEventListener implements GSEventListener 
 {
 	private final KrollProxy _proxy;
 	
-	public GlobalEventListener(final KrollProxy proxy)
+	public GigyaEventListener(final KrollProxy proxy)
 	{
 		_proxy = proxy;
 	}

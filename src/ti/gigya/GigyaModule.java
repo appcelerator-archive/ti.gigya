@@ -21,10 +21,10 @@ import android.app.Activity;
 import com.gigya.socialize.GSObject;
 import com.gigya.socialize.android.GSAPI;
 
-import ti.gigya.listeners.ConnectUIListener;
-import ti.gigya.listeners.GlobalEventListener;
-import ti.gigya.listeners.LoginUIListener;
-import ti.gigya.listeners.ResponseListener;
+import ti.gigya.listeners.GigyaAddConnectionsUIListener;
+import ti.gigya.listeners.GigyaEventListener;
+import ti.gigya.listeners.GigyaLoginUIListener;
+import ti.gigya.listeners.GigyaResponseListener;
 
 @Kroll.module(name="Gigya", id="ti.gigya")
 public class GigyaModule extends KrollModule
@@ -47,7 +47,7 @@ public class GigyaModule extends KrollModule
 			// NOTE (from the Gigya documentation):
 			// "You should create only one GSAPI object and retain it for the lifetime of your application."
 			_gsAPI = new GSAPI(apiKey, invocation.getActivity());
-			_gsAPI.setEventListener(new GlobalEventListener(this));
+			_gsAPI.setEventListener(new GigyaEventListener(this));
 		}
 		return _gsAPI;
 	}
@@ -125,7 +125,7 @@ public class GigyaModule extends KrollModule
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		try {
-			gsAPI.showLoginUI(gsObj, new LoginUIListener(this, args), null);
+			gsAPI.showLoginUI(gsObj, new GigyaLoginUIListener(this, args), null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -142,7 +142,7 @@ public class GigyaModule extends KrollModule
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 
 		try {
-			gsAPI.showAddConnectionsUI(gsObj, new ConnectUIListener(this, args), null);
+			gsAPI.showAddConnectionsUI(gsObj, new GigyaAddConnectionsUIListener(this, args), null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -159,10 +159,16 @@ public class GigyaModule extends KrollModule
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		try {
-			gsAPI.login(gsObj, new ResponseListener(this, args), null);
+			gsAPI.login(gsObj, new GigyaResponseListener(this, args), null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
+	}
+	
+	@Kroll.getProperty @Kroll.method
+	public boolean loggedIn(KrollInvocation invocation)
+	{
+		return getGSAPI(invocation).getSession() != null;
 	}
 	
 	@Kroll.method(runOnUiThread=true)
@@ -176,12 +182,6 @@ public class GigyaModule extends KrollModule
 			e.printStackTrace();
 		}
 	}
-	
-	@Kroll.getProperty @Kroll.method
-	public boolean loggedIn(KrollInvocation invocation)
-	{
-		return getGSAPI(invocation).getSession() != null;
-	}
 
 /* ---------------------------------------------------------------------------------
    addConnection / removeConnection methods
@@ -194,7 +194,7 @@ public class GigyaModule extends KrollModule
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		try {
-			gsAPI.addConnection(gsObj, new ResponseListener(this, args), null);
+			gsAPI.addConnection(gsObj, new GigyaResponseListener(this, args), null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -208,7 +208,7 @@ public class GigyaModule extends KrollModule
 		
 		try {
 			// NOTE: This method name is misspelled in the Gigya SDK
-			gsAPI.removeConnetion(gsObj, new ResponseListener(this, args), null);
+			gsAPI.removeConnetion(gsObj, new GigyaResponseListener(this, args), null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -229,7 +229,7 @@ public class GigyaModule extends KrollModule
 		boolean useHTTPS = args.optBoolean(Constants.kUseHTTPS, false);
 		
 		try {
-			gsAPI.sendRequest(method, gsObj, useHTTPS, new ResponseListener(this, args), null);
+			gsAPI.sendRequest(method, gsObj, useHTTPS, new GigyaResponseListener(this, args), null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
