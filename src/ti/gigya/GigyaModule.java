@@ -38,7 +38,7 @@ public class GigyaModule extends KrollModule
 	public synchronized GSAPI getGSAPI(KrollInvocation invocation) 
 	{
 		if (_gsAPI == null) {
-			String apiKey = TiConvert.toString(getProperty("apiKey"));
+			String apiKey = TiConvert.toString(getProperty(Constants.kAPIKey));
 			if (apiKey.length() == 0) {
 				Log.e(Constants.LCAT, "[ERROR] apiKey property is  not set");
 				return null;
@@ -122,7 +122,7 @@ public class GigyaModule extends KrollModule
 	public void showLoginUI(KrollInvocation invocation, KrollDict args)
 	{
 		GSAPI gsAPI = getGSAPI(invocation);
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		try {
 			gsAPI.showLoginUI(gsObj, new LoginUIListener(this, args), null);
@@ -139,7 +139,7 @@ public class GigyaModule extends KrollModule
 	public void showAddConnectionsUI(KrollInvocation invocation, KrollDict args)
 	{
 		GSAPI gsAPI = getGSAPI(invocation);
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 
 		try {
 			gsAPI.showAddConnectionsUI(gsObj, new ConnectUIListener(this, args), null);
@@ -156,7 +156,7 @@ public class GigyaModule extends KrollModule
 	public void login(KrollInvocation invocation, KrollDict args)
 	{
 		GSAPI gsAPI = getGSAPI(invocation);
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		try {
 			gsAPI.login(gsObj, new ResponseListener(this, args), null);
@@ -191,7 +191,7 @@ public class GigyaModule extends KrollModule
 	public void AddConnection(KrollInvocation invocation, KrollDict args)
 	{
 		GSAPI gsAPI = getGSAPI(invocation);
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		try {
 			gsAPI.addConnection(gsObj, new ResponseListener(this, args), null);
@@ -204,7 +204,7 @@ public class GigyaModule extends KrollModule
 	public void RemoveConnection(KrollInvocation invocation, KrollDict args)
 	{
 		GSAPI gsAPI = getGSAPI(invocation);
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		try {
 			// NOTE: This method name is misspelled in the Gigya SDK
@@ -223,10 +223,10 @@ public class GigyaModule extends KrollModule
 	{
 	    // NOTE: This must be called on the UI thread, even though it doesn't perform any UI
 		GSAPI gsAPI = getGSAPI(invocation);
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict("params"));
+		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
-		String method = args.getString("method");
-		boolean useHTTPS = args.optBoolean("useHTTPS", false);
+		String method = args.getString(Constants.kMethod);
+		boolean useHTTPS = args.optBoolean(Constants.kUseHTTPS, false);
 		
 		try {
 			gsAPI.sendRequest(method, gsObj, useHTTPS, new ResponseListener(this, args), null);
@@ -239,8 +239,8 @@ public class GigyaModule extends KrollModule
    Public Event Names
    --------------------------------------------------------------------------------- */
 
-	@Kroll.constant public static final String DID_LOGIN = Constants.DID_LOGIN;
-	@Kroll.constant public static final String DID_LOGOUT = Constants.DID_LOGOUT;
-	@Kroll.constant public static final String DID_ADD_CONNECTION = Constants.DID_ADD_CONNECTION;
-	@Kroll.constant public static final String DID_REMOVE_CONNECTION = Constants.DID_REMOVE_CONNECTION;
+	@Kroll.constant public static final String DID_LOGIN = Constants.kDidLogin;
+	@Kroll.constant public static final String DID_LOGOUT = Constants.kDidLogout;
+	@Kroll.constant public static final String DID_ADD_CONNECTION = Constants.kDidAddConnection;
+	@Kroll.constant public static final String DID_REMOVE_CONNECTION = Constants.kDidRemoveConnection;
 }

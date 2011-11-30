@@ -4,6 +4,7 @@ import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.titanium.kroll.KrollCallback;
 
+import ti.gigya.Constants;
 import ti.gigya.Util;
 
 import com.gigya.socialize.GSResponse;
@@ -17,8 +18,8 @@ public class ResponseListener implements GSResponseListener
 	
 	public ResponseListener(final KrollProxy proxy, final KrollDict args)
 	{
-		_success = (KrollCallback)args.get("success");
-		_error = (KrollCallback)args.get("error");
+		_success = (KrollCallback)args.get(Constants.kSuccess);
+		_error = (KrollCallback)args.get(Constants.kError);
 		_proxy = proxy;
 	}
 	
@@ -29,14 +30,14 @@ public class ResponseListener implements GSResponseListener
 		
 		if (response.getErrorCode() == 0) {
 			if (_success != null) {
-				event.put("data", Util.dataFromGSObject(response.getObject("data",null)));
-				_proxy.fireSingleEvent("success", _success, event, true);
+				event.put(Constants.kData, Util.dataFromGSObject(response.getObject(Constants.kData,null)));
+				_proxy.fireSingleEvent(Constants.kSuccess, _success, event, true);
 			}
 		} else {
 			if (_error != null) {
-				event.put("errorCode", response.getErrorCode());
-				event.put("errorMessage", response.getErrorMessage());
-				_proxy.fireSingleEvent("error", _error, event, true);
+				event.put(Constants.kErrorCode, response.getErrorCode());
+				event.put(Constants.kErrorMessage, response.getErrorMessage());
+				_proxy.fireSingleEvent(Constants.kError, _error, event, true);
 			}
 		}
 	}

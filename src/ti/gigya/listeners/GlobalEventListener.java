@@ -27,42 +27,42 @@ public class GlobalEventListener implements GSEventListener
 	
 	public void onLogin(String provider, GSObject user, Object context)
 	{
-		if (_proxy.hasListeners(Constants.DID_LOGIN)) {
+		if (_proxy.hasListeners(Constants.kDidLogin)) {
 			KrollDict event = new KrollDict();
-			event.put("provider", provider);
-			event.put("data", Util.dataFromGSObject(user));
+			event.put(Constants.kProvider, provider);
+			event.put(Constants.kData, Util.dataFromGSObject(user));
 			
-			_proxy.fireEvent (Constants.DID_LOGIN, event);
+			_proxy.fireEvent (Constants.kDidLogin, event);
 		}
 	}
 	
 	public void onLogout(Object context)
 	{
-		if (_proxy.hasListeners(Constants.DID_LOGOUT)) {
+		if (_proxy.hasListeners(Constants.kDidLogout)) {
 			KrollDict event = new KrollDict();
 			
-			_proxy.fireEvent (Constants.DID_LOGOUT, event);
+			_proxy.fireEvent (Constants.kDidLogout, event);
 		}
 	}
 	
 	public void onConnectionAdded(String provider, GSObject user, Object context) 
 	{
-		if (_proxy.hasListeners(Constants.DID_ADD_CONNECTION)) {
+		if (_proxy.hasListeners(Constants.kDidAddConnection)) {
 			KrollDict event = new KrollDict();
-			event.put("provider", provider);
-			event.put("data", Util.dataFromGSObject(user));
+			event.put(Constants.kProvider, provider);
+			event.put(Constants.kData, Util.dataFromGSObject(user));
 			
-			_proxy.fireEvent (Constants.DID_ADD_CONNECTION, event);
+			_proxy.fireEvent (Constants.kDidAddConnection, event);
 		}
 	}
 	
 	public void onConnectionRemoved(String provider, Object context)
 	{
-		if (_proxy.hasListeners(Constants.DID_REMOVE_CONNECTION)) {
+		if (_proxy.hasListeners(Constants.kDidRemoveConnection)) {
 			KrollDict event = new KrollDict();
-			event.put("provider", provider);
+			event.put(Constants.kProvider, provider);
 			
-			_proxy.fireEvent (Constants.DID_REMOVE_CONNECTION, event);
+			_proxy.fireEvent (Constants.kDidRemoveConnection, event);
 		}
 	}
 }

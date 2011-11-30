@@ -11,8 +11,22 @@ public class Constants {
 	public static final String LCAT = "GigyaModule";
 	
 	// global events
-	public static final String DID_LOGIN = "did_login";
-	public static final String DID_LOGOUT = "did_logout";
-	public static final String DID_ADD_CONNECTION = "did_add_connection";
-	public static final String DID_REMOVE_CONNECTION = "did_remove_connection";
+	public static final String kDidLogin = "did_login";
+	public static final String kDidLogout = "did_logout";
+	public static final String kDidAddConnection = "did_add_connection";
+	public static final String kDidRemoveConnection = "did_remove_connection";
+	
+	public static final String kSuccess = "success";
+	public static final String kError = "error";
+	public static final String kErrorCode = "errorCode";
+	public static final String kErrorMessage = "errorMessage";
+	public static final String kCanceled = "canceled";
+	public static final String kData = "data";
+	public static final String kProvider = "provider";
+	public static final String kMethod = "method";
+	public static final String kLoad = "load";
+	public static final String kClose = "close";
+	public static final String kParams = "params";
+	public static final String kUseHTTPS = "useHTTPS";
+	public static final String kAPIKey = "apiKey";
 }
