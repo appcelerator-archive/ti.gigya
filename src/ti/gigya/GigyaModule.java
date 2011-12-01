@@ -188,7 +188,7 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 	
 	@Kroll.method(runOnUiThread=true)
-	public void AddConnection(KrollInvocation invocation, KrollDict args)
+	public void addConnection(KrollInvocation invocation, KrollDict args)
 	{
 		GSAPI gsAPI = getGSAPI(invocation);
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
@@ -201,7 +201,7 @@ public class GigyaModule extends KrollModule
 	}
 	
 	@Kroll.method(runOnUiThread=true)
-	public void RemoveConnection(KrollInvocation invocation, KrollDict args)
+	public void removeConnection(KrollInvocation invocation, KrollDict args)
 	{
 		GSAPI gsAPI = getGSAPI(invocation);
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
