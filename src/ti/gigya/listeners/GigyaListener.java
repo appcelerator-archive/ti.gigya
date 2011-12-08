@@ -9,7 +9,7 @@ package ti.gigya.listeners;
 
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
-import org.appcelerator.titanium.kroll.KrollCallback;
+import org.appcelerator.kroll.KrollFunction;
 
 import ti.gigya.Constants;
 import ti.gigya.Util;
@@ -18,14 +18,14 @@ import com.gigya.socialize.GSObject;
 
 public class GigyaListener 
 {
-	private final KrollCallback _successCallback;
-	private final KrollCallback _errorCallback;
-	protected final KrollProxy _proxy;
-	
+	private final KrollFunction _successCallback;
+	private final KrollFunction _errorCallback;
+	private final KrollProxy _proxy;
+
 	public GigyaListener(final KrollProxy proxy, final KrollDict args)
 	{
-		_successCallback = (KrollCallback)args.get(Constants.kSuccess);
-		_errorCallback = (KrollCallback)args.get(Constants.kError);
+		_successCallback = (KrollFunction)args.get(Constants.kSuccess);
+		_errorCallback = (KrollFunction)args.get(Constants.kError);
 		_proxy = proxy;
 	}
 
@@ -35,7 +35,7 @@ public class GigyaListener
 			KrollDict event = new KrollDict();
 			event.put(tag, obj);
 			event.put(Constants.kData, Util.dataFromGSObject(data));
-			_proxy.fireSingleEvent(Constants.kSuccess, _successCallback, event, true);
+			_successCallback.callAsync(_proxy.getKrollObject(), event);
 		}
 	}
 	
@@ -45,7 +45,7 @@ public class GigyaListener
 			KrollDict event = new KrollDict();
 			event.put(Constants.kErrorCode, errorCode);
 			event.put(Constants.kErrorMessage, errorMessage);
-			_proxy.fireSingleEvent(Constants.kError, _errorCallback, event, true);
+			_errorCallback.callAsync(_proxy.getKrollObject(), event);
 		}
 	}
 	
@@ -56,7 +56,7 @@ public class GigyaListener
 			event.put(Constants.kMethod, method);
 			event.put(Constants.kErrorCode, errorCode);
 			event.put(Constants.kErrorMessage, errorMessage);
-			_proxy.fireSingleEvent(Constants.kError, _errorCallback, event, true);
+			_errorCallback.callAsync(_proxy.getKrollObject(), event);
 		}
 	}
 }

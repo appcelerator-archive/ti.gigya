@@ -9,27 +9,29 @@ package ti.gigya.listeners;
 
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
-import org.appcelerator.titanium.kroll.KrollCallback;
+import org.appcelerator.kroll.KrollFunction;
 
 import ti.gigya.Constants;
 
 public class GigyaUIListener extends GigyaListener 
 {
-	private final KrollCallback _loadCallback;
-	private final KrollCallback _closeCallback;
+	private final KrollFunction _loadCallback;
+	private final KrollFunction _closeCallback;
+	private final KrollProxy _proxy;
 	
 	public GigyaUIListener(final KrollProxy proxy, final KrollDict args)
 	{
 		super(proxy, args);
 		
-		_loadCallback = (KrollCallback)args.get(Constants.kLoad);
-		_closeCallback = (KrollCallback)args.get(Constants.kClose);
+		_loadCallback = (KrollFunction)args.get(Constants.kLoad);
+		_closeCallback = (KrollFunction)args.get(Constants.kClose);
+		_proxy = proxy;
 	}
 
 	public void handleLoad()
 	{
 		if (_loadCallback != null) {
-			_proxy.fireSingleEvent(Constants.kLoad, _loadCallback, null, true);
+			_loadCallback.callAsync(_proxy.getKrollObject(), new Object[] {});
 		}
 	}
 	
@@ -38,7 +40,7 @@ public class GigyaUIListener extends GigyaListener
 		if (_closeCallback != null) {
 			KrollDict event = new KrollDict();
 			event.put(Constants.kCanceled, canceled);
-			_proxy.fireSingleEvent(Constants.kClose, _closeCallback, event, true);
+			_closeCallback.callAsync(_proxy.getKrollObject(), event);
 		}
 	}
 }

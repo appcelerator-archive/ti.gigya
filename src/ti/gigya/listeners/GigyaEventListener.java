@@ -19,7 +19,7 @@ import com.gigya.socialize.android.event.GSEventListener;
 public class GigyaEventListener implements GSEventListener 
 {
 	private final KrollProxy _proxy;
-	
+
 	public GigyaEventListener(final KrollProxy proxy)
 	{
 		_proxy = proxy;

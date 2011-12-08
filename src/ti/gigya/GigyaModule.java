@@ -8,13 +8,12 @@
 package ti.gigya;
 
 import org.appcelerator.kroll.KrollDict;
-import org.appcelerator.kroll.KrollInvocation;
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
 
-import org.appcelerator.titanium.TiContext;
 import org.appcelerator.titanium.util.Log;
 import org.appcelerator.titanium.util.TiConvert;
+import org.appcelerator.titanium.TiApplication;
 
 import android.app.Activity;
 
@@ -29,26 +28,29 @@ import ti.gigya.listeners.GigyaResponseListener;
 @Kroll.module(name="Gigya", id="ti.gigya")
 public class GigyaModule extends KrollModule
 {
-	public GigyaModule(TiContext tiContext) {
-		super(tiContext);
+	// Standard Debugging variables
+	private static final String LCAT = "GigyaModule";
+
+	public GigyaModule() {
+		super();
 	}
 
 	// GSAPI singleton -- allocated on first use -- don't use static on objects in Android
 	private GSAPI _gsAPI = null;
-	public synchronized GSAPI getGSAPI(KrollInvocation invocation) 
+	public synchronized GSAPI getGSAPI()
 	{
 		if (_gsAPI == null) {
-			String apiKey = TiConvert.toString(getProperty(Constants.kAPIKey));
-			if (apiKey.length() == 0) {
+				if ((apiKey == null) || (apiKey.length() == 0)) {
 				Log.e(Constants.LCAT, "[ERROR] apiKey property is  not set");
 				return null;
 			}
 
 			// NOTE (from the Gigya documentation):
 			// "You should create only one GSAPI object and retain it for the lifetime of your application."
-			_gsAPI = new GSAPI(apiKey, invocation.getActivity());
+			_gsAPI = new GSAPI(apiKey, TiApplication.getAppRootOrCurrentActivity());
 			_gsAPI.setEventListener(new GigyaEventListener(this));
 		}
+
 		return _gsAPI;
 	}
 	
@@ -61,7 +63,22 @@ public class GigyaModule extends KrollModule
 		
 		super.onDestroy(activity);
 	}
-	
+
+    // NOTE: Do ** NOT ** use getProperty from a proxy / module For some reason it won't get the
+    // property that is set by the JS.
+
+	private String apiKey = null;
+
+	@Kroll.getProperty
+	public String getApiKey() {
+		return apiKey;
+	}
+
+    @Kroll.setProperty
+	public void setApiKey(String value) {
+	    apiKey = value;
+	}
+
 /* ---------------------------------------------------------------------------------
    Gigya static properties
 --------------------------------------------------------------------------------- */
@@ -119,9 +136,9 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 	
 	@Kroll.method(runOnUiThread=true)
-	public void showLoginUI(KrollInvocation invocation, KrollDict args)
+	public void showLoginUI(KrollDict args)
 	{
-		GSAPI gsAPI = getGSAPI(invocation);
+		GSAPI gsAPI = getGSAPI();
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		try {
@@ -136,9 +153,9 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 
 	@Kroll.method(runOnUiThread=true)
-	public void showAddConnectionsUI(KrollInvocation invocation, KrollDict args)
+	public void showAddConnectionsUI(KrollDict args)
 	{
-		GSAPI gsAPI = getGSAPI(invocation);
+		GSAPI gsAPI = getGSAPI();
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 
 		try {
@@ -153,9 +170,9 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 	
 	@Kroll.method(runOnUiThread=true)
-	public void login(KrollInvocation invocation, KrollDict args)
+	public void login(KrollDict args)
 	{
-		GSAPI gsAPI = getGSAPI(invocation);
+		GSAPI gsAPI = getGSAPI();
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		try {
@@ -165,16 +182,16 @@ public class GigyaModule extends KrollModule
 		} 
 	}
 	
-	@Kroll.getProperty @Kroll.method
-	public boolean loggedIn(KrollInvocation invocation)
+	@Kroll.getProperty
+	public boolean loggedIn()
 	{
-		return getGSAPI(invocation).getSession() != null;
+		return getGSAPI().getSession() != null;
 	}
 	
 	@Kroll.method(runOnUiThread=true)
-	public void logout(KrollInvocation invocation)
+	public void logout()
 	{
-		GSAPI gsAPI = getGSAPI(invocation);
+		GSAPI gsAPI = getGSAPI();
 		
 		try {
 			gsAPI.logout();
@@ -188,9 +205,9 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 	
 	@Kroll.method(runOnUiThread=true)
-	public void addConnection(KrollInvocation invocation, KrollDict args)
+	public void addConnection(KrollDict args)
 	{
-		GSAPI gsAPI = getGSAPI(invocation);
+		GSAPI gsAPI = getGSAPI();
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		try {
@@ -201,9 +218,9 @@ public class GigyaModule extends KrollModule
 	}
 	
 	@Kroll.method(runOnUiThread=true)
-	public void removeConnection(KrollInvocation invocation, KrollDict args)
+	public void removeConnection(KrollDict args)
 	{
-		GSAPI gsAPI = getGSAPI(invocation);
+		GSAPI gsAPI = getGSAPI();
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		try {
@@ -219,10 +236,10 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 
 	@Kroll.method(runOnUiThread=true)
-	public void sendRequest(KrollInvocation invocation, KrollDict args)
+	public void sendRequest(KrollDict args)
 	{
 	    // NOTE: This must be called on the UI thread, even though it doesn't perform any UI
-		GSAPI gsAPI = getGSAPI(invocation);
+		GSAPI gsAPI = getGSAPI();
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
 		
 		String method = args.getString(Constants.kMethod);
