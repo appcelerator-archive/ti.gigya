@@ -14,8 +14,12 @@ import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.util.Log;
 import org.appcelerator.titanium.util.TiConvert;
 import org.appcelerator.titanium.TiApplication;
+import org.appcelerator.kroll.common.TiMessenger;
+import org.appcelerator.kroll.common.AsyncResult;
 
 import android.app.Activity;
+import android.os.Handler;
+import android.os.Message;
 
 import com.gigya.socialize.GSObject;
 import com.gigya.socialize.android.GSAPI;
@@ -135,12 +139,21 @@ public class GigyaModule extends KrollModule
    showLoginUI method
    --------------------------------------------------------------------------------- */
 	
-	@Kroll.method(runOnUiThread=true)
+	@Kroll.method
 	public void showLoginUI(KrollDict args)
 	{
+		if (!TiApplication.isUIThread()) {
+            TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_SHOW_LOGIN_UI), args);
+		} else {
+	        handleShowLoginUI(args);
+		}
+	}
+
+    private void handleShowLoginUI(KrollDict args)
+    {
 		GSAPI gsAPI = getGSAPI();
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
-		
+
 		try {
 			gsAPI.showLoginUI(gsObj, new GigyaLoginUIListener(this, args), null);
 		} catch (Exception e) {
@@ -152,8 +165,17 @@ public class GigyaModule extends KrollModule
    showAddConnectionsUI method
    --------------------------------------------------------------------------------- */
 
-	@Kroll.method(runOnUiThread=true)
+	@Kroll.method
 	public void showAddConnectionsUI(KrollDict args)
+	{
+		if (!TiApplication.isUIThread()) {
+            TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_SHOW_ADD_CONNECTIONS_UI), args);
+		} else {
+	        handleShowAddConnectionsUI(args);
+		}
+	}
+
+	private void handleShowAddConnectionsUI(KrollDict args)
 	{
 		GSAPI gsAPI = getGSAPI();
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
@@ -169,8 +191,17 @@ public class GigyaModule extends KrollModule
    login / logout methods
    --------------------------------------------------------------------------------- */
 	
-	@Kroll.method(runOnUiThread=true)
+	@Kroll.method
 	public void login(KrollDict args)
+	{
+		if (!TiApplication.isUIThread()) {
+            TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_LOGIN), args);
+		} else {
+	        handleLogin(args);
+		}
+	}
+
+	private void handleLogin(KrollDict args)
 	{
 		GSAPI gsAPI = getGSAPI();
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
@@ -188,8 +219,17 @@ public class GigyaModule extends KrollModule
 		return getGSAPI().getSession() != null;
 	}
 	
-	@Kroll.method(runOnUiThread=true)
-	public void logout()
+	@Kroll.method
+	public void logout(KrollDict args)
+	{
+		if (!TiApplication.isUIThread()) {
+            TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_LOGOUT));
+		} else {
+	        handleLogout();
+		}
+	}
+
+	private void handleLogout()
 	{
 		GSAPI gsAPI = getGSAPI();
 		
@@ -204,8 +244,18 @@ public class GigyaModule extends KrollModule
    addConnection / removeConnection methods
    --------------------------------------------------------------------------------- */
 	
-	@Kroll.method(runOnUiThread=true)
+	@Kroll.method
 	public void addConnection(KrollDict args)
+	{
+		if (!TiApplication.isUIThread()) {
+            TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_ADD_CONNECTION), args);
+		} else {
+	        handleAddConnection(args);
+		}
+	}
+
+
+	public void handleAddConnection(KrollDict args)
 	{
 		GSAPI gsAPI = getGSAPI();
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
@@ -217,8 +267,17 @@ public class GigyaModule extends KrollModule
 		}
 	}
 	
-	@Kroll.method(runOnUiThread=true)
+	@Kroll.method
 	public void removeConnection(KrollDict args)
+	{
+		if (!TiApplication.isUIThread()) {
+            TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_REMOVE_CONNECTION), args);
+		} else {
+	        handleRemoveConnection(args);
+		}
+	}
+
+	public void handleRemoveConnection(KrollDict args)
 	{
 		GSAPI gsAPI = getGSAPI();
 		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
@@ -235,8 +294,17 @@ public class GigyaModule extends KrollModule
    sendRequest method
    --------------------------------------------------------------------------------- */
 
-	@Kroll.method(runOnUiThread=true)
+	@Kroll.method
 	public void sendRequest(KrollDict args)
+	{
+		if (!TiApplication.isUIThread()) {
+            TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_SEND_REQUEST), args);
+		} else {
+	        handleSendRequest(args);
+		}
+	}
+
+	public void handleSendRequest(KrollDict args)
 	{
 	    // NOTE: This must be called on the UI thread, even though it doesn't perform any UI
 		GSAPI gsAPI = getGSAPI();
@@ -251,6 +319,63 @@ public class GigyaModule extends KrollModule
 			e.printStackTrace();
 		}
 	}
+
+/* ---------------------------------------------------------------------------------
+   UI Thread handler
+   --------------------------------------------------------------------------------- */
+
+    private static final int MSG_SHOW_LOGIN_UI = 50000;
+    private static final int MSG_SHOW_ADD_CONNECTIONS_UI = 50001;
+    private static final int MSG_LOGIN = 50002;
+    private static final int MSG_LOGOUT = 50003;
+    private static final int MSG_ADD_CONNECTION = 50004;
+    private static final int MSG_REMOVE_CONNECTION = 50005;
+    private static final int MSG_SEND_REQUEST = 50006;
+
+	private final Handler handler = new Handler(TiMessenger.getMainMessenger().getLooper(), new Handler.Callback ()
+	{
+    	public boolean handleMessage(Message msg)
+        {
+            AsyncResult result = (AsyncResult) msg.obj;
+            switch (msg.what) {
+                case MSG_SHOW_LOGIN_UI: {
+                    handleShowLoginUI((KrollDict)result.getArg());
+                    break;
+                }
+                case MSG_SHOW_ADD_CONNECTIONS_UI: {
+                    handleShowAddConnectionsUI((KrollDict)result.getArg());
+                    break;
+                }
+                case MSG_LOGIN: {
+                    handleLogin((KrollDict)result.getArg());
+                    break;
+                }
+                case MSG_LOGOUT: {
+                    handleLogout();
+                    break;
+                }
+                case MSG_ADD_CONNECTION: {
+                    handleAddConnection((KrollDict)result.getArg());
+                    break;
+                }
+                case MSG_REMOVE_CONNECTION: {
+                    handleRemoveConnection((KrollDict)result.getArg());
+                    break;
+                }
+                case MSG_SEND_REQUEST: {
+                    handleSendRequest((KrollDict)result.getArg());
+                    break;
+                }
+                default: {
+                    result.setResult(null);
+                    return false;
+                }
+            }
+
+            result.setResult(null);
+            return true;
+        }
+    });
 
 /* ---------------------------------------------------------------------------------
    Public Event Names
