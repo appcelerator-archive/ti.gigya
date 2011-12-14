@@ -220,7 +220,7 @@ public class GigyaModule extends KrollModule
 	}
 	
 	@Kroll.method
-	public void logout(KrollDict args)
+	public void logout()
 	{
 		if (!TiApplication.isUIThread()) {
             TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_LOGOUT));
