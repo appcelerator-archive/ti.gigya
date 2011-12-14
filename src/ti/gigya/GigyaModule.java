@@ -29,6 +29,8 @@ import ti.gigya.listeners.GigyaEventListener;
 import ti.gigya.listeners.GigyaLoginUIListener;
 import ti.gigya.listeners.GigyaResponseListener;
 
+import java.util.HashMap;
+
 @Kroll.module(name="Gigya", id="ti.gigya")
 public class GigyaModule extends KrollModule
 {
@@ -49,13 +51,23 @@ public class GigyaModule extends KrollModule
 				return null;
 			}
 
-			// NOTE (from the Gigya documentation):
-			// "You should create only one GSAPI object and retain it for the lifetime of your application."
-			_gsAPI = new GSAPI(apiKey, TiApplication.getAppRootOrCurrentActivity());
-			_gsAPI.setEventListener(new GigyaEventListener(this));
+       		if (!TiApplication.isUIThread()) {
+                _gsAPI = (GSAPI)TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_GSAPI));
+      		} else {
+       	        _gsAPI = (GSAPI)handleGSAPI();
+       		}
 		}
-
 		return _gsAPI;
+	}
+
+	private GSAPI handleGSAPI()
+	{
+        // NOTE (from the Gigya documentation):
+        // "You should create only one GSAPI object and retain it for the lifetime of your application."
+        _gsAPI = new GSAPI(apiKey, TiApplication.getAppRootOrCurrentActivity());
+        _gsAPI.setEventListener(new GigyaEventListener(this));
+
+        return _gsAPI;
 	}
 	
 	@Override
@@ -140,7 +152,7 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 	
 	@Kroll.method
-	public void showLoginUI(KrollDict args)
+	public void showLoginUI(HashMap args)
 	{
 		if (!TiApplication.isUIThread()) {
             TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_SHOW_LOGIN_UI), args);
@@ -149,10 +161,11 @@ public class GigyaModule extends KrollModule
 		}
 	}
 
-    private void handleShowLoginUI(KrollDict args)
+    private void handleShowLoginUI(HashMap args)
     {
 		GSAPI gsAPI = getGSAPI();
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
+		KrollDict argsDict = new KrollDict(args);
+		GSObject gsObj = Util.GSObjectFromArgument(argsDict.getKrollDict(Constants.kParams));
 
 		try {
 			gsAPI.showLoginUI(gsObj, new GigyaLoginUIListener(this, args), null);
@@ -166,7 +179,7 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 
 	@Kroll.method
-	public void showAddConnectionsUI(KrollDict args)
+	public void showAddConnectionsUI(HashMap args)
 	{
 		if (!TiApplication.isUIThread()) {
             TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_SHOW_ADD_CONNECTIONS_UI), args);
@@ -175,10 +188,11 @@ public class GigyaModule extends KrollModule
 		}
 	}
 
-	private void handleShowAddConnectionsUI(KrollDict args)
+	private void handleShowAddConnectionsUI(HashMap args)
 	{
 		GSAPI gsAPI = getGSAPI();
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
+		KrollDict argsDict = new KrollDict(args);
+		GSObject gsObj = Util.GSObjectFromArgument(argsDict.getKrollDict(Constants.kParams));
 
 		try {
 			gsAPI.showAddConnectionsUI(gsObj, new GigyaAddConnectionsUIListener(this, args), null);
@@ -192,7 +206,7 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 	
 	@Kroll.method
-	public void login(KrollDict args)
+	public void login(HashMap args)
 	{
 		if (!TiApplication.isUIThread()) {
             TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_LOGIN), args);
@@ -201,10 +215,11 @@ public class GigyaModule extends KrollModule
 		}
 	}
 
-	private void handleLogin(KrollDict args)
+	private void handleLogin(HashMap args)
 	{
 		GSAPI gsAPI = getGSAPI();
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
+		KrollDict argsDict = new KrollDict(args);
+		GSObject gsObj = Util.GSObjectFromArgument(argsDict.getKrollDict(Constants.kParams));
 		
 		try {
 			gsAPI.login(gsObj, new GigyaResponseListener(this, args), null);
@@ -245,7 +260,7 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 	
 	@Kroll.method
-	public void addConnection(KrollDict args)
+	public void addConnection(HashMap args)
 	{
 		if (!TiApplication.isUIThread()) {
             TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_ADD_CONNECTION), args);
@@ -255,10 +270,11 @@ public class GigyaModule extends KrollModule
 	}
 
 
-	public void handleAddConnection(KrollDict args)
+	public void handleAddConnection(HashMap args)
 	{
 		GSAPI gsAPI = getGSAPI();
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
+		KrollDict argsDict = new KrollDict(args);
+		GSObject gsObj = Util.GSObjectFromArgument(argsDict.getKrollDict(Constants.kParams));
 		
 		try {
 			gsAPI.addConnection(gsObj, new GigyaResponseListener(this, args), null);
@@ -268,7 +284,7 @@ public class GigyaModule extends KrollModule
 	}
 	
 	@Kroll.method
-	public void removeConnection(KrollDict args)
+	public void removeConnection(HashMap args)
 	{
 		if (!TiApplication.isUIThread()) {
             TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_REMOVE_CONNECTION), args);
@@ -277,10 +293,11 @@ public class GigyaModule extends KrollModule
 		}
 	}
 
-	public void handleRemoveConnection(KrollDict args)
+	public void handleRemoveConnection(HashMap args)
 	{
 		GSAPI gsAPI = getGSAPI();
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
+		KrollDict argsDict = new KrollDict(args);
+		GSObject gsObj = Util.GSObjectFromArgument(argsDict.getKrollDict(Constants.kParams));
 		
 		try {
 			// NOTE: This method name is misspelled in the Gigya SDK
@@ -295,7 +312,7 @@ public class GigyaModule extends KrollModule
    --------------------------------------------------------------------------------- */
 
 	@Kroll.method
-	public void sendRequest(KrollDict args)
+	public void sendRequest(HashMap args)
 	{
 		if (!TiApplication.isUIThread()) {
             TiMessenger.sendBlockingMainMessage(handler.obtainMessage(MSG_SEND_REQUEST), args);
@@ -304,14 +321,15 @@ public class GigyaModule extends KrollModule
 		}
 	}
 
-	public void handleSendRequest(KrollDict args)
+	public void handleSendRequest(HashMap args)
 	{
 	    // NOTE: This must be called on the UI thread, even though it doesn't perform any UI
 		GSAPI gsAPI = getGSAPI();
-		GSObject gsObj = Util.GSObjectFromArgument(args.getKrollDict(Constants.kParams));
+		KrollDict argsDict = new KrollDict(args);
+		GSObject gsObj = Util.GSObjectFromArgument(argsDict.getKrollDict(Constants.kParams));
 		
-		String method = args.getString(Constants.kMethod);
-		boolean useHTTPS = args.optBoolean(Constants.kUseHTTPS, false);
+		String method = argsDict.getString(Constants.kMethod);
+		boolean useHTTPS = argsDict.optBoolean(Constants.kUseHTTPS, false);
 		
 		try {
 			gsAPI.sendRequest(method, gsObj, useHTTPS, new GigyaResponseListener(this, args), null);
@@ -331,6 +349,7 @@ public class GigyaModule extends KrollModule
     private static final int MSG_ADD_CONNECTION = 50004;
     private static final int MSG_REMOVE_CONNECTION = 50005;
     private static final int MSG_SEND_REQUEST = 50006;
+    private static final int MSG_GSAPI = 50007;
 
 	private final Handler handler = new Handler(TiMessenger.getMainMessenger().getLooper(), new Handler.Callback ()
 	{
@@ -339,15 +358,15 @@ public class GigyaModule extends KrollModule
             AsyncResult result = (AsyncResult) msg.obj;
             switch (msg.what) {
                 case MSG_SHOW_LOGIN_UI: {
-                    handleShowLoginUI((KrollDict)result.getArg());
+                    handleShowLoginUI((HashMap)result.getArg());
                     break;
                 }
                 case MSG_SHOW_ADD_CONNECTIONS_UI: {
-                    handleShowAddConnectionsUI((KrollDict)result.getArg());
+                    handleShowAddConnectionsUI((HashMap)result.getArg());
                     break;
                 }
                 case MSG_LOGIN: {
-                    handleLogin((KrollDict)result.getArg());
+                    handleLogin((HashMap)result.getArg());
                     break;
                 }
                 case MSG_LOGOUT: {
@@ -355,15 +374,19 @@ public class GigyaModule extends KrollModule
                     break;
                 }
                 case MSG_ADD_CONNECTION: {
-                    handleAddConnection((KrollDict)result.getArg());
+                    handleAddConnection((HashMap)result.getArg());
                     break;
                 }
                 case MSG_REMOVE_CONNECTION: {
-                    handleRemoveConnection((KrollDict)result.getArg());
+                    handleRemoveConnection((HashMap)result.getArg());
                     break;
                 }
                 case MSG_SEND_REQUEST: {
-                    handleSendRequest((KrollDict)result.getArg());
+                    handleSendRequest((HashMap)result.getArg());
+                    break;
+                }
+                case MSG_GSAPI: {
+                    result.setResult(handleGSAPI());
                     break;
                 }
                 default: {

@@ -7,7 +7,6 @@
  */
 package ti.gigya.listeners;
 
-import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
 
 import ti.gigya.Constants;
@@ -15,9 +14,11 @@ import ti.gigya.Constants;
 import com.gigya.socialize.GSObject;
 import com.gigya.socialize.android.event.GSConnectUIListener;
 
+import java.util.HashMap;
+
 public class GigyaAddConnectionsUIListener extends GigyaUIListener implements GSConnectUIListener 
 {
-	public GigyaAddConnectionsUIListener(final KrollProxy proxy, final KrollDict args)
+	public GigyaAddConnectionsUIListener(final KrollProxy proxy, final HashMap args)
 	{
 		super(proxy, args);
 	}

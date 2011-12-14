@@ -7,11 +7,11 @@
  */
 package ti.gigya.listeners;
 
-import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.KrollFunction;
 
 import ti.gigya.Constants;
+import java.util.HashMap;
 
 public class GigyaUIListener extends GigyaListener 
 {
@@ -19,7 +19,7 @@ public class GigyaUIListener extends GigyaListener
 	private final KrollFunction _closeCallback;
 	private final KrollProxy _proxy;
 	
-	public GigyaUIListener(final KrollProxy proxy, final KrollDict args)
+	public GigyaUIListener(final KrollProxy proxy, final HashMap args)
 	{
 		super(proxy, args);
 		
@@ -38,7 +38,7 @@ public class GigyaUIListener extends GigyaListener
 	public void handleClose(boolean canceled)
 	{
 		if (_closeCallback != null) {
-			KrollDict event = new KrollDict();
+			HashMap event = new HashMap();
 			event.put(Constants.kCanceled, canceled);
 			_closeCallback.callAsync(_proxy.getKrollObject(), event);
 		}
