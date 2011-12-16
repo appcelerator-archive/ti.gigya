@@ -31,7 +31,7 @@ public class GigyaEventListener implements GSEventListener
 	public void onLogin(String provider, GSObject user, Object context)
 	{
 		if (_proxy.hasListeners(Constants.kDidLogin)) {
-			KrollDict event = new KrollDict();
+			HashMap event = new HashMap();
 			event.put(Constants.kProvider, provider);
 			event.put(Constants.kData, Util.dataFromGSObject(user));
 
@@ -43,7 +43,7 @@ public class GigyaEventListener implements GSEventListener
 	{
 		if (_proxy.hasListeners(Constants.kDidLogout)) {
 			HashMap event = new HashMap();
-			
+
 			_proxy.fireEvent (Constants.kDidLogout, event);
 		}
 	}
