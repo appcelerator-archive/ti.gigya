@@ -10,6 +10,16 @@ Note that your application must have a unique Gigya API key. To retrieve this ke
  
 After you have retrieved you application's API key, store it in the _Gigya.apiKey_ property. 
 
+## Getting Started
+
+View the [Configuring Apps to Use Modules](https://wiki.appcelerator.org/display/guides/Configuring+Apps+to+Use+Modules) page for instructions on getting
+started with using this module in your application.
+
+Note that there may be two versions of this module available to you, one for use with pre-1.8.0.1 SDKs and one for use with 1.8.0.1 or newer.
+In your tiapp.xml file, make sure that you specify the version of the module that corresponds to the version of Titanium Mobile SDK that you are targeting.
+For Appcelerator modules, specify the 1.X version of the module if building for versions of Titanium Mobile SDK prior to 1.8.0.1 and specify the 2.X version of the module if
+building for versions of Titanium Mobile SDK 1.8.0.1 or newer.
+
 ## Accessing the Gigya Module
 
 To access this module from JavaScript, you would do the following:
