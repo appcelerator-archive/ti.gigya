@@ -8,7 +8,7 @@
 package ti.gigya;
 
 import org.appcelerator.kroll.KrollDict;
-import org.appcelerator.titanium.util.Log;
+import org.appcelerator.kroll.common.Log;
 import org.appcelerator.titanium.util.TiConvert;
 import org.json.JSONException;
 import org.json.JSONObject;
