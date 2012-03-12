@@ -19,4 +19,4 @@
 #include "GSFBDialog.h"
 #include "GSFBLoginDialog.h"
 #include "GSFBRequest.h"
-#include "SBJSON.h"
+#include "TiGigyaSBJSON.h"

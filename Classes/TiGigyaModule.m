@@ -9,7 +9,7 @@
 #import "TiHost.h"
 #import "TiUtils.h"
 #import "TiApp.h"
-#import "SBJSON.h"
+#import "TiGigyaSBJSON.h"
 
 #import "GSAPI.h"
 #import "Util.h"

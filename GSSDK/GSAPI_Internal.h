@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SBJSON.h"
+#import "TiGigyaSBJSON.h"
 #import	"GSSession.h"
 #import	"GSResponse.h"
 #import	"GSObject.h"

@@ -28,19 +28,19 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "SBJsonParser.h"
-#import "SBJsonWriter.h"
+#import "TiGigyaSBJsonParser.h"
+#import "TiGigyaSBJsonWriter.h"
 
 /**
- @brief Facade for SBJsonWriter/SBJsonParser.
+ @brief Facade for TiGigyaSBJsonWriter/TiGigyaSBJsonParser.
 
- Requests are forwarded to instances of SBJsonWriter and SBJsonParser.
+ Requests are forwarded to instances of TiGigyaSBJsonWriter and TiGigyaSBJsonParser.
  */
-@interface SBJSON : SBJsonBase <SBJsonParser, SBJsonWriter> {
+@interface TiGigyaSBJSON : TiGigyaSBJsonBase <TiGigyaSBJsonParser, TiGigyaSBJsonWriter> {
 
 @private    
-    SBJsonParser *jsonParser;
-    SBJsonWriter *jsonWriter;
+    TiGigyaSBJsonParser *jsonParser;
+    TiGigyaSBJsonWriter *jsonWriter;
 }
 
 

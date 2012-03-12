@@ -44,7 +44,7 @@
  
 */
 
-#import "SBJSON.h"
-#import "NSObject+SBJSON.h"
-#import "NSString+SBJSON.h"
+#import "TiGigyaSBJSON.h"
+#import "NSObject+TiGigyaSBJSON.h"
+#import "NSString+TiGigyaSBJSON.h"
 

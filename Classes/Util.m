@@ -5,7 +5,7 @@
  */
 
 #import "Util.h"
-#import "SBJSON.h"
+#import "TiGigyaSBJSON.h"
 #import "GSAPI.h"
 #import "TiUtils.h"
 
@@ -15,7 +15,7 @@ DEFINE_EXCEPTIONS
 
 +(NSString *)JSONRepresentation:(NSDictionary*)dict
 {
-    SBJsonWriter *jsonWriter = [SBJsonWriter new];    
+    TiGigyaSBJsonWriter *jsonWriter = [TiGigyaSBJsonWriter new];    
     NSString *json = [jsonWriter stringWithObject:dict];
     if (!json) {
         NSLog(@"-JSONRepresentation failed. Error trace is: %@", [jsonWriter errorTrace]);
@@ -55,7 +55,7 @@ DEFINE_EXCEPTIONS
     // to the JavaScript event handler.
     
     if (obj != nil) {
-        SBJSON *json = [[[SBJSON alloc] init] autorelease];
+        TiGigyaSBJSON *json = [[[TiGigyaSBJSON alloc] init] autorelease];
         data = [json fragmentWithString:[obj stringValue] error:nil];
     }
     

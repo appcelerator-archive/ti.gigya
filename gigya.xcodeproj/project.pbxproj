@@ -66,18 +66,18 @@
 		A2942D151476BB5400868112 /* GSWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CEB1476BB5400868112 /* GSWebViewController.h */; };
 		A2942D161476BB5400868112 /* GSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CEC1476BB5400868112 /* GSWebViewController.m */; };
 		A2942D171476BB5400868112 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CEF1476BB5400868112 /* JSON.h */; };
-		A2942D181476BB5400868112 /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF01476BB5400868112 /* NSObject+SBJSON.h */; };
-		A2942D191476BB5400868112 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF11476BB5400868112 /* NSObject+SBJSON.m */; };
-		A2942D1A1476BB5400868112 /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF21476BB5400868112 /* NSString+SBJSON.h */; };
-		A2942D1B1476BB5400868112 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF31476BB5400868112 /* NSString+SBJSON.m */; };
-		A2942D1C1476BB5400868112 /* SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF41476BB5400868112 /* SBJSON.h */; };
-		A2942D1D1476BB5400868112 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF51476BB5400868112 /* SBJSON.m */; };
-		A2942D1E1476BB5400868112 /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF61476BB5400868112 /* SBJsonBase.h */; };
-		A2942D1F1476BB5400868112 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF71476BB5400868112 /* SBJsonBase.m */; };
-		A2942D201476BB5400868112 /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF81476BB5400868112 /* SBJsonParser.h */; };
-		A2942D211476BB5400868112 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF91476BB5400868112 /* SBJsonParser.m */; };
-		A2942D221476BB5400868112 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CFA1476BB5400868112 /* SBJsonWriter.h */; };
-		A2942D231476BB5400868112 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CFB1476BB5400868112 /* SBJsonWriter.m */; };
+		A2942D181476BB5400868112 /* NSObject+TiGigyaSBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF01476BB5400868112 /* NSObject+TiGigyaSBJSON.h */; };
+		A2942D191476BB5400868112 /* NSObject+TiGigyaSBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF11476BB5400868112 /* NSObject+TiGigyaSBJSON.m */; };
+		A2942D1A1476BB5400868112 /* NSString+TiGigyaSBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF21476BB5400868112 /* NSString+TiGigyaSBJSON.h */; };
+		A2942D1B1476BB5400868112 /* NSString+TiGigyaSBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF31476BB5400868112 /* NSString+TiGigyaSBJSON.m */; };
+		A2942D1C1476BB5400868112 /* TiGigyaSBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF41476BB5400868112 /* TiGigyaSBJSON.h */; };
+		A2942D1D1476BB5400868112 /* TiGigyaSBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF51476BB5400868112 /* TiGigyaSBJSON.m */; };
+		A2942D1E1476BB5400868112 /* TiGigyaSBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF61476BB5400868112 /* TiGigyaSBJsonBase.h */; };
+		A2942D1F1476BB5400868112 /* TiGigyaSBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF71476BB5400868112 /* TiGigyaSBJsonBase.m */; };
+		A2942D201476BB5400868112 /* TiGigyaSBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF81476BB5400868112 /* TiGigyaSBJsonParser.h */; };
+		A2942D211476BB5400868112 /* TiGigyaSBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF91476BB5400868112 /* TiGigyaSBJsonParser.m */; };
+		A2942D221476BB5400868112 /* TiGigyaSBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CFA1476BB5400868112 /* TiGigyaSBJsonWriter.h */; };
+		A2942D231476BB5400868112 /* TiGigyaSBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CFB1476BB5400868112 /* TiGigyaSBJsonWriter.m */; };
 		A2EA0FC61485978B00D18F3A /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FC41485978B00D18F3A /* Util.h */; };
 		A2EA0FC71485978B00D18F3A /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA0FC51485978B00D18F3A /* Util.m */; };
 		A2EA0FDA1485B05500D18F3A /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FD81485B05500D18F3A /* Constants.h */; };
@@ -144,18 +144,18 @@
 		A2942CEC1476BB5400868112 /* GSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSWebViewController.m; sourceTree = "<group>"; };
 		A2942CED1476BB5400868112 /* GSWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSWebViewController.xib; sourceTree = "<group>"; };
 		A2942CEF1476BB5400868112 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		A2942CF01476BB5400868112 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		A2942CF11476BB5400868112 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
-		A2942CF21476BB5400868112 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		A2942CF31476BB5400868112 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
-		A2942CF41476BB5400868112 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
-		A2942CF51476BB5400868112 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
-		A2942CF61476BB5400868112 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
-		A2942CF71476BB5400868112 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
-		A2942CF81476BB5400868112 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		A2942CF91476BB5400868112 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		A2942CFA1476BB5400868112 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		A2942CFB1476BB5400868112 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		A2942CF01476BB5400868112 /* NSObject+TiGigyaSBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TiGigyaSBJSON.h"; sourceTree = "<group>"; };
+		A2942CF11476BB5400868112 /* NSObject+TiGigyaSBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TiGigyaSBJSON.m"; sourceTree = "<group>"; };
+		A2942CF21476BB5400868112 /* NSString+TiGigyaSBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TiGigyaSBJSON.h"; sourceTree = "<group>"; };
+		A2942CF31476BB5400868112 /* NSString+TiGigyaSBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TiGigyaSBJSON.m"; sourceTree = "<group>"; };
+		A2942CF41476BB5400868112 /* TiGigyaSBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaSBJSON.h; sourceTree = "<group>"; };
+		A2942CF51476BB5400868112 /* TiGigyaSBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaSBJSON.m; sourceTree = "<group>"; };
+		A2942CF61476BB5400868112 /* TiGigyaSBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaSBJsonBase.h; sourceTree = "<group>"; };
+		A2942CF71476BB5400868112 /* TiGigyaSBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaSBJsonBase.m; sourceTree = "<group>"; };
+		A2942CF81476BB5400868112 /* TiGigyaSBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaSBJsonParser.h; sourceTree = "<group>"; };
+		A2942CF91476BB5400868112 /* TiGigyaSBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaSBJsonParser.m; sourceTree = "<group>"; };
+		A2942CFA1476BB5400868112 /* TiGigyaSBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaSBJsonWriter.h; sourceTree = "<group>"; };
+		A2942CFB1476BB5400868112 /* TiGigyaSBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaSBJsonWriter.m; sourceTree = "<group>"; };
 		A2EA0FC41485978B00D18F3A /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Classes/Util.h; sourceTree = "<group>"; };
 		A2EA0FC51485978B00D18F3A /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Classes/Util.m; sourceTree = "<group>"; };
 		A2EA0FD81485B05500D18F3A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/Constants.h; sourceTree = "<group>"; };
@@ -299,18 +299,18 @@
 			isa = PBXGroup;
 			children = (
 				A2942CEF1476BB5400868112 /* JSON.h */,
-				A2942CF01476BB5400868112 /* NSObject+SBJSON.h */,
-				A2942CF11476BB5400868112 /* NSObject+SBJSON.m */,
-				A2942CF21476BB5400868112 /* NSString+SBJSON.h */,
-				A2942CF31476BB5400868112 /* NSString+SBJSON.m */,
-				A2942CF41476BB5400868112 /* SBJSON.h */,
-				A2942CF51476BB5400868112 /* SBJSON.m */,
-				A2942CF61476BB5400868112 /* SBJsonBase.h */,
-				A2942CF71476BB5400868112 /* SBJsonBase.m */,
-				A2942CF81476BB5400868112 /* SBJsonParser.h */,
-				A2942CF91476BB5400868112 /* SBJsonParser.m */,
-				A2942CFA1476BB5400868112 /* SBJsonWriter.h */,
-				A2942CFB1476BB5400868112 /* SBJsonWriter.m */,
+				A2942CF01476BB5400868112 /* NSObject+TiGigyaSBJSON.h */,
+				A2942CF11476BB5400868112 /* NSObject+TiGigyaSBJSON.m */,
+				A2942CF21476BB5400868112 /* NSString+TiGigyaSBJSON.h */,
+				A2942CF31476BB5400868112 /* NSString+TiGigyaSBJSON.m */,
+				A2942CF41476BB5400868112 /* TiGigyaSBJSON.h */,
+				A2942CF51476BB5400868112 /* TiGigyaSBJSON.m */,
+				A2942CF61476BB5400868112 /* TiGigyaSBJsonBase.h */,
+				A2942CF71476BB5400868112 /* TiGigyaSBJsonBase.m */,
+				A2942CF81476BB5400868112 /* TiGigyaSBJsonParser.h */,
+				A2942CF91476BB5400868112 /* TiGigyaSBJsonParser.m */,
+				A2942CFA1476BB5400868112 /* TiGigyaSBJsonWriter.h */,
+				A2942CFB1476BB5400868112 /* TiGigyaSBJsonWriter.m */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -340,12 +340,12 @@
 				A2942D131476BB5400868112 /* GSSession.h in Headers */,
 				A2942D151476BB5400868112 /* GSWebViewController.h in Headers */,
 				A2942D171476BB5400868112 /* JSON.h in Headers */,
-				A2942D181476BB5400868112 /* NSObject+SBJSON.h in Headers */,
-				A2942D1A1476BB5400868112 /* NSString+SBJSON.h in Headers */,
-				A2942D1C1476BB5400868112 /* SBJSON.h in Headers */,
-				A2942D1E1476BB5400868112 /* SBJsonBase.h in Headers */,
-				A2942D201476BB5400868112 /* SBJsonParser.h in Headers */,
-				A2942D221476BB5400868112 /* SBJsonWriter.h in Headers */,
+				A2942D181476BB5400868112 /* NSObject+TiGigyaSBJSON.h in Headers */,
+				A2942D1A1476BB5400868112 /* NSString+TiGigyaSBJSON.h in Headers */,
+				A2942D1C1476BB5400868112 /* TiGigyaSBJSON.h in Headers */,
+				A2942D1E1476BB5400868112 /* TiGigyaSBJsonBase.h in Headers */,
+				A2942D201476BB5400868112 /* TiGigyaSBJsonParser.h in Headers */,
+				A2942D221476BB5400868112 /* TiGigyaSBJsonWriter.h in Headers */,
 				A2EA0FC61485978B00D18F3A /* Util.h in Headers */,
 				A2EA0FDA1485B05500D18F3A /* Constants.h in Headers */,
 				A28BA7401489197D008C713F /* TiGigyaAddConnectionsUIDelegate.h in Headers */,
@@ -442,12 +442,12 @@
 				A2942D121476BB5400868112 /* GSResponse.m in Sources */,
 				A2942D141476BB5400868112 /* GSSession.m in Sources */,
 				A2942D161476BB5400868112 /* GSWebViewController.m in Sources */,
-				A2942D191476BB5400868112 /* NSObject+SBJSON.m in Sources */,
-				A2942D1B1476BB5400868112 /* NSString+SBJSON.m in Sources */,
-				A2942D1D1476BB5400868112 /* SBJSON.m in Sources */,
-				A2942D1F1476BB5400868112 /* SBJsonBase.m in Sources */,
-				A2942D211476BB5400868112 /* SBJsonParser.m in Sources */,
-				A2942D231476BB5400868112 /* SBJsonWriter.m in Sources */,
+				A2942D191476BB5400868112 /* NSObject+TiGigyaSBJSON.m in Sources */,
+				A2942D1B1476BB5400868112 /* NSString+TiGigyaSBJSON.m in Sources */,
+				A2942D1D1476BB5400868112 /* TiGigyaSBJSON.m in Sources */,
+				A2942D1F1476BB5400868112 /* TiGigyaSBJsonBase.m in Sources */,
+				A2942D211476BB5400868112 /* TiGigyaSBJsonParser.m in Sources */,
+				A2942D231476BB5400868112 /* TiGigyaSBJsonWriter.m in Sources */,
 				A2EA0FC71485978B00D18F3A /* Util.m in Sources */,
 				A2EA0FDB1485B05500D18F3A /* Constants.m in Sources */,
 				A28BA7411489197D008C713F /* TiGigyaAddConnectionsUIDelegate.m in Sources */,
