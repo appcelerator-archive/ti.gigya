@@ -123,7 +123,7 @@ logoutButton.addEventListener('click', function (e) {
  */
 var statusTextField = Ti.UI.createTextField({
     hintText: 'Update Your Status',
-    height: 30 + u,
+    height: 40 + u,
     top: 48 + u, right: 5 + u, left: 5 + u,
     borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
     appearance: Ti.UI.KEYBOARD_APPEARANCE_ALERT,
@@ -216,7 +216,7 @@ function populateFriends(rawFriends) {
     friendsTable.setData(friends);
 }
 var friendsTable = Ti.UI.createTableView({
-    top: 83 + u, rowHeight: 58 + u
+    top: 93 + u, rowHeight: 58 + u
 });
 friendsTable.addEventListener('click', function (evt) {
     if (evt.row && evt.row.hasChild) {

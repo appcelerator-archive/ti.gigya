@@ -231,7 +231,8 @@ public class GigyaModule extends KrollModule
 	@Kroll.getProperty
 	public boolean loggedIn()
 	{
-		return getGSAPI().getSession() != null;
+		GSAPI gsAPI = getGSAPI();
+		return gsAPI != null && gsAPI.getSession() != null;
 	}
 	
 	@Kroll.method
