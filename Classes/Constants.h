@@ -1,7 +1,7 @@
 /**
- *
- * Appcelerator Titanium is Copyright (c) 2009-2011 by Appcelerator, Inc.
- * and licensed under the Apache Public License (version 2)
+ * Ti.Gigya Module
+ * Copyright (c) 2010-2013 by Appcelerator, Inc. All Rights Reserved.
+ * Please see the LICENSE included with this distribution for details.
  */
 
 extern NSString* const kDID_LOGIN;
