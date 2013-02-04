@@ -179,7 +179,7 @@ View the [change log](changelog.html) for this module.
 Please direct all questions, feedback, and concerns to [info@appcelerator.com](mailto:info@appcelerator.com?subject=Android%20Gigya%20Module).
 
 ## License
-Copyright(c) 2010-2011 by Appcelerator, Inc. All Rights Reserved. Please see the LICENSE file included in the distribution for further details.
+Copyright(c) 2010-2013 by Appcelerator, Inc. All Rights Reserved. Please see the LICENSE file included in the distribution for further details.
 
 [Gigya.showLoginUI]: http://developers.gigya.com/035_Mobile_SDKs/020_Android/010_Reference
 [Gigya.showAddConnectionsUI]: http://developers.gigya.com/035_Mobile_SDKs/020_Android/010_Reference
