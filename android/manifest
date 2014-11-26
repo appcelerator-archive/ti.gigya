@@ -1,4 +1,4 @@
-#
+cd#
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
@@ -15,4 +15,4 @@ name: gigya
 moduleid: ti.gigya
 guid: e339acfc-b5be-4ee5-886a-3548524d1eb4
 platform: android
-minsdk: 2.1.3.GA
+minsdk: 3.2.1.GA
