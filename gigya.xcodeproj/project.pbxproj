@@ -1,0 +1,707 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		24416B8111C4CA220047AFDD /* Build & Test */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */;
+			buildPhases = (
+				24416B8011C4CA220047AFDD /* ShellScript */,
+			);
+			dependencies = (
+				24416B8511C4CA280047AFDD /* PBXTargetDependency */,
+			);
+			name = "Build & Test";
+			productName = "Build & test";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		24DD6CF91134B3F500162E58 /* TiGigyaModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* TiGigyaModule.h */; };
+		24DD6CFA1134B3F500162E58 /* TiGigyaModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiGigyaModule.m */; };
+		24DE9E1111C5FE74003F90F6 /* TiGigyaModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiGigyaModuleAssets.h */; };
+		24DE9E1211C5FE74003F90F6 /* TiGigyaModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiGigyaModuleAssets.m */; };
+		A28BA7401489197D008C713F /* TiGigyaAddConnectionsUIDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A28BA7341489197D008C713F /* TiGigyaAddConnectionsUIDelegate.h */; };
+		A28BA7411489197D008C713F /* TiGigyaAddConnectionsUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BA7351489197D008C713F /* TiGigyaAddConnectionsUIDelegate.m */; };
+		A28BA7421489197D008C713F /* TiGigyaDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A28BA7361489197D008C713F /* TiGigyaDelegate.h */; };
+		A28BA7431489197D008C713F /* TiGigyaDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BA7371489197D008C713F /* TiGigyaDelegate.m */; };
+		A28BA7441489197D008C713F /* TiGigyaEventDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A28BA7381489197D008C713F /* TiGigyaEventDelegate.h */; };
+		A28BA7451489197D008C713F /* TiGigyaEventDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BA7391489197D008C713F /* TiGigyaEventDelegate.m */; };
+		A28BA7461489197D008C713F /* TiGigyaLoginUIDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A28BA73A1489197D008C713F /* TiGigyaLoginUIDelegate.h */; };
+		A28BA7471489197D008C713F /* TiGigyaLoginUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BA73B1489197D008C713F /* TiGigyaLoginUIDelegate.m */; };
+		A28BA7481489197D008C713F /* TiGigyaResponseDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A28BA73C1489197D008C713F /* TiGigyaResponseDelegate.h */; };
+		A28BA7491489197D008C713F /* TiGigyaResponseDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BA73D1489197D008C713F /* TiGigyaResponseDelegate.m */; };
+		A28BA74A1489197D008C713F /* TiGigyaUIDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A28BA73E1489197D008C713F /* TiGigyaUIDelegate.h */; };
+		A28BA74B1489197D008C713F /* TiGigyaUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BA73F1489197D008C713F /* TiGigyaUIDelegate.m */; };
+		A2942CFC1476BB5400868112 /* GSAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CD01476BB5400868112 /* GSAPI.h */; };
+		A2942CFD1476BB5400868112 /* GSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CD11476BB5400868112 /* GSAPI.m */; };
+		A2942CFE1476BB5400868112 /* GSAPI_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CD21476BB5400868112 /* GSAPI_Internal.h */; };
+		A2942CFF1476BB5400868112 /* GSAPI_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CD31476BB5400868112 /* GSAPI_Internal.m */; };
+		A2942D001476BB5400868112 /* GSContext.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CD41476BB5400868112 /* GSContext.h */; };
+		A2942D011476BB5400868112 /* GSContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CD51476BB5400868112 /* GSContext.m */; };
+		A2942D021476BB5400868112 /* GSFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CD71476BB5400868112 /* GSFacebook.h */; };
+		A2942D031476BB5400868112 /* GSFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CD81476BB5400868112 /* GSFacebook.m */; };
+		A2942D041476BB5400868112 /* GSFBConnect.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CD91476BB5400868112 /* GSFBConnect.h */; };
+		A2942D051476BB5400868112 /* GSFBDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CDB1476BB5400868112 /* GSFBDialog.h */; };
+		A2942D061476BB5400868112 /* GSFBDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CDC1476BB5400868112 /* GSFBDialog.m */; };
+		A2942D071476BB5400868112 /* GSFBLoginDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CDD1476BB5400868112 /* GSFBLoginDialog.h */; };
+		A2942D081476BB5400868112 /* GSFBLoginDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CDE1476BB5400868112 /* GSFBLoginDialog.m */; };
+		A2942D091476BB5400868112 /* GSFBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CDF1476BB5400868112 /* GSFBRequest.h */; };
+		A2942D0A1476BB5400868112 /* GSFBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CE01476BB5400868112 /* GSFBRequest.m */; };
+		A2942D0B1476BB5400868112 /* GSLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CE11476BB5400868112 /* GSLogger.h */; };
+		A2942D0C1476BB5400868112 /* GSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CE21476BB5400868112 /* GSLogger.m */; };
+		A2942D0D1476BB5400868112 /* GSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CE31476BB5400868112 /* GSObject.h */; };
+		A2942D0E1476BB5400868112 /* GSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CE41476BB5400868112 /* GSObject.m */; };
+		A2942D0F1476BB5400868112 /* GSRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CE51476BB5400868112 /* GSRequest.h */; };
+		A2942D101476BB5400868112 /* GSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CE61476BB5400868112 /* GSRequest.m */; };
+		A2942D111476BB5400868112 /* GSResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CE71476BB5400868112 /* GSResponse.h */; };
+		A2942D121476BB5400868112 /* GSResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CE81476BB5400868112 /* GSResponse.m */; };
+		A2942D131476BB5400868112 /* GSSession.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CE91476BB5400868112 /* GSSession.h */; };
+		A2942D141476BB5400868112 /* GSSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CEA1476BB5400868112 /* GSSession.m */; };
+		A2942D151476BB5400868112 /* GSWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CEB1476BB5400868112 /* GSWebViewController.h */; };
+		A2942D161476BB5400868112 /* GSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CEC1476BB5400868112 /* GSWebViewController.m */; };
+		A2942D171476BB5400868112 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CEF1476BB5400868112 /* JSON.h */; };
+		A2942D181476BB5400868112 /* NSObject+TiGigyaSBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF01476BB5400868112 /* NSObject+TiGigyaSBJSON.h */; };
+		A2942D191476BB5400868112 /* NSObject+TiGigyaSBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF11476BB5400868112 /* NSObject+TiGigyaSBJSON.m */; };
+		A2942D1A1476BB5400868112 /* NSString+TiGigyaSBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF21476BB5400868112 /* NSString+TiGigyaSBJSON.h */; };
+		A2942D1B1476BB5400868112 /* NSString+TiGigyaSBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF31476BB5400868112 /* NSString+TiGigyaSBJSON.m */; };
+		A2942D1C1476BB5400868112 /* TiGigyaSBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF41476BB5400868112 /* TiGigyaSBJSON.h */; };
+		A2942D1D1476BB5400868112 /* TiGigyaSBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF51476BB5400868112 /* TiGigyaSBJSON.m */; };
+		A2942D1E1476BB5400868112 /* TiGigyaSBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF61476BB5400868112 /* TiGigyaSBJsonBase.h */; };
+		A2942D1F1476BB5400868112 /* TiGigyaSBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF71476BB5400868112 /* TiGigyaSBJsonBase.m */; };
+		A2942D201476BB5400868112 /* TiGigyaSBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CF81476BB5400868112 /* TiGigyaSBJsonParser.h */; };
+		A2942D211476BB5400868112 /* TiGigyaSBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CF91476BB5400868112 /* TiGigyaSBJsonParser.m */; };
+		A2942D221476BB5400868112 /* TiGigyaSBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = A2942CFA1476BB5400868112 /* TiGigyaSBJsonWriter.h */; };
+		A2942D231476BB5400868112 /* TiGigyaSBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A2942CFB1476BB5400868112 /* TiGigyaSBJsonWriter.m */; };
+		A2EA0FC61485978B00D18F3A /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FC41485978B00D18F3A /* Util.h */; };
+		A2EA0FC71485978B00D18F3A /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA0FC51485978B00D18F3A /* Util.m */; };
+		A2EA0FDA1485B05500D18F3A /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EA0FD81485B05500D18F3A /* Constants.h */; };
+		A2EA0FDB1485B05500D18F3A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA0FD91485B05500D18F3A /* Constants.m */; };
+		AA747D9F0F9514B9006C5449 /* TiGigya_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiGigya_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24416B8411C4CA280047AFDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = gigya;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24DD6CF71134B3F500162E58 /* TiGigyaModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGigyaModule.h; path = Classes/TiGigyaModule.h; sourceTree = "<group>"; };
+		24DD6CF81134B3F500162E58 /* TiGigyaModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGigyaModule.m; path = Classes/TiGigyaModule.m; sourceTree = "<group>"; };
+		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
+		24DE9E0F11C5FE74003F90F6 /* TiGigyaModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGigyaModuleAssets.h; path = Classes/TiGigyaModuleAssets.h; sourceTree = "<group>"; };
+		24DE9E1011C5FE74003F90F6 /* TiGigyaModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGigyaModuleAssets.m; path = Classes/TiGigyaModuleAssets.m; sourceTree = "<group>"; };
+		A28BA7341489197D008C713F /* TiGigyaAddConnectionsUIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaAddConnectionsUIDelegate.h; sourceTree = "<group>"; };
+		A28BA7351489197D008C713F /* TiGigyaAddConnectionsUIDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaAddConnectionsUIDelegate.m; sourceTree = "<group>"; };
+		A28BA7361489197D008C713F /* TiGigyaDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaDelegate.h; sourceTree = "<group>"; };
+		A28BA7371489197D008C713F /* TiGigyaDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaDelegate.m; sourceTree = "<group>"; };
+		A28BA7381489197D008C713F /* TiGigyaEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaEventDelegate.h; sourceTree = "<group>"; };
+		A28BA7391489197D008C713F /* TiGigyaEventDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaEventDelegate.m; sourceTree = "<group>"; };
+		A28BA73A1489197D008C713F /* TiGigyaLoginUIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaLoginUIDelegate.h; sourceTree = "<group>"; };
+		A28BA73B1489197D008C713F /* TiGigyaLoginUIDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaLoginUIDelegate.m; sourceTree = "<group>"; };
+		A28BA73C1489197D008C713F /* TiGigyaResponseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaResponseDelegate.h; sourceTree = "<group>"; };
+		A28BA73D1489197D008C713F /* TiGigyaResponseDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaResponseDelegate.m; sourceTree = "<group>"; };
+		A28BA73E1489197D008C713F /* TiGigyaUIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaUIDelegate.h; sourceTree = "<group>"; };
+		A28BA73F1489197D008C713F /* TiGigyaUIDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaUIDelegate.m; sourceTree = "<group>"; };
+		A2942CD01476BB5400868112 /* GSAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAPI.h; sourceTree = "<group>"; };
+		A2942CD11476BB5400868112 /* GSAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAPI.m; sourceTree = "<group>"; };
+		A2942CD21476BB5400868112 /* GSAPI_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAPI_Internal.h; sourceTree = "<group>"; };
+		A2942CD31476BB5400868112 /* GSAPI_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAPI_Internal.m; sourceTree = "<group>"; };
+		A2942CD41476BB5400868112 /* GSContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSContext.h; sourceTree = "<group>"; };
+		A2942CD51476BB5400868112 /* GSContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSContext.m; sourceTree = "<group>"; };
+		A2942CD71476BB5400868112 /* GSFacebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSFacebook.h; sourceTree = "<group>"; };
+		A2942CD81476BB5400868112 /* GSFacebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSFacebook.m; sourceTree = "<group>"; };
+		A2942CD91476BB5400868112 /* GSFBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSFBConnect.h; sourceTree = "<group>"; };
+		A2942CDA1476BB5400868112 /* GSFBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GSFBDialog.bundle; sourceTree = "<group>"; };
+		A2942CDB1476BB5400868112 /* GSFBDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSFBDialog.h; sourceTree = "<group>"; };
+		A2942CDC1476BB5400868112 /* GSFBDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSFBDialog.m; sourceTree = "<group>"; };
+		A2942CDD1476BB5400868112 /* GSFBLoginDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSFBLoginDialog.h; sourceTree = "<group>"; };
+		A2942CDE1476BB5400868112 /* GSFBLoginDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSFBLoginDialog.m; sourceTree = "<group>"; };
+		A2942CDF1476BB5400868112 /* GSFBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSFBRequest.h; sourceTree = "<group>"; };
+		A2942CE01476BB5400868112 /* GSFBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSFBRequest.m; sourceTree = "<group>"; };
+		A2942CE11476BB5400868112 /* GSLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSLogger.h; sourceTree = "<group>"; };
+		A2942CE21476BB5400868112 /* GSLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSLogger.m; sourceTree = "<group>"; };
+		A2942CE31476BB5400868112 /* GSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSObject.h; sourceTree = "<group>"; };
+		A2942CE41476BB5400868112 /* GSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSObject.m; sourceTree = "<group>"; };
+		A2942CE51476BB5400868112 /* GSRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSRequest.h; sourceTree = "<group>"; };
+		A2942CE61476BB5400868112 /* GSRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSRequest.m; sourceTree = "<group>"; };
+		A2942CE71476BB5400868112 /* GSResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSResponse.h; sourceTree = "<group>"; };
+		A2942CE81476BB5400868112 /* GSResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSResponse.m; sourceTree = "<group>"; };
+		A2942CE91476BB5400868112 /* GSSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSession.h; sourceTree = "<group>"; };
+		A2942CEA1476BB5400868112 /* GSSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSession.m; sourceTree = "<group>"; };
+		A2942CEB1476BB5400868112 /* GSWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSWebViewController.h; sourceTree = "<group>"; };
+		A2942CEC1476BB5400868112 /* GSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSWebViewController.m; sourceTree = "<group>"; };
+		A2942CED1476BB5400868112 /* GSWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSWebViewController.xib; sourceTree = "<group>"; };
+		A2942CEF1476BB5400868112 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		A2942CF01476BB5400868112 /* NSObject+TiGigyaSBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TiGigyaSBJSON.h"; sourceTree = "<group>"; };
+		A2942CF11476BB5400868112 /* NSObject+TiGigyaSBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TiGigyaSBJSON.m"; sourceTree = "<group>"; };
+		A2942CF21476BB5400868112 /* NSString+TiGigyaSBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TiGigyaSBJSON.h"; sourceTree = "<group>"; };
+		A2942CF31476BB5400868112 /* NSString+TiGigyaSBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TiGigyaSBJSON.m"; sourceTree = "<group>"; };
+		A2942CF41476BB5400868112 /* TiGigyaSBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaSBJSON.h; sourceTree = "<group>"; };
+		A2942CF51476BB5400868112 /* TiGigyaSBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaSBJSON.m; sourceTree = "<group>"; };
+		A2942CF61476BB5400868112 /* TiGigyaSBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaSBJsonBase.h; sourceTree = "<group>"; };
+		A2942CF71476BB5400868112 /* TiGigyaSBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaSBJsonBase.m; sourceTree = "<group>"; };
+		A2942CF81476BB5400868112 /* TiGigyaSBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaSBJsonParser.h; sourceTree = "<group>"; };
+		A2942CF91476BB5400868112 /* TiGigyaSBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaSBJsonParser.m; sourceTree = "<group>"; };
+		A2942CFA1476BB5400868112 /* TiGigyaSBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigyaSBJsonWriter.h; sourceTree = "<group>"; };
+		A2942CFB1476BB5400868112 /* TiGigyaSBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiGigyaSBJsonWriter.m; sourceTree = "<group>"; };
+		A2EA0FC41485978B00D18F3A /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Classes/Util.h; sourceTree = "<group>"; };
+		A2EA0FC51485978B00D18F3A /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Classes/Util.m; sourceTree = "<group>"; };
+		A2EA0FD81485B05500D18F3A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/Constants.h; sourceTree = "<group>"; };
+		A2EA0FD91485B05500D18F3A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Classes/Constants.m; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* TiGigya_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGigya_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libTiGigya.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiGigya.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libTiGigya.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* gigya */ = {
+			isa = PBXGroup;
+			children = (
+				A2942CCF1476BB5400868112 /* GSSDK */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = gigya;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A28BA7331489197D008C713F /* Delegates */,
+				24DE9E0F11C5FE74003F90F6 /* TiGigyaModuleAssets.h */,
+				24DE9E1011C5FE74003F90F6 /* TiGigyaModuleAssets.m */,
+				24DD6CF71134B3F500162E58 /* TiGigyaModule.h */,
+				24DD6CF81134B3F500162E58 /* TiGigyaModule.m */,
+				A2EA0FC41485978B00D18F3A /* Util.h */,
+				A2EA0FC51485978B00D18F3A /* Util.m */,
+				A2EA0FD81485B05500D18F3A /* Constants.h */,
+				A2EA0FD91485B05500D18F3A /* Constants.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* TiGigya_Prefix.pch */,
+				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		A28BA7331489197D008C713F /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				A28BA7341489197D008C713F /* TiGigyaAddConnectionsUIDelegate.h */,
+				A28BA7351489197D008C713F /* TiGigyaAddConnectionsUIDelegate.m */,
+				A28BA7361489197D008C713F /* TiGigyaDelegate.h */,
+				A28BA7371489197D008C713F /* TiGigyaDelegate.m */,
+				A28BA7381489197D008C713F /* TiGigyaEventDelegate.h */,
+				A28BA7391489197D008C713F /* TiGigyaEventDelegate.m */,
+				A28BA73A1489197D008C713F /* TiGigyaLoginUIDelegate.h */,
+				A28BA73B1489197D008C713F /* TiGigyaLoginUIDelegate.m */,
+				A28BA73C1489197D008C713F /* TiGigyaResponseDelegate.h */,
+				A28BA73D1489197D008C713F /* TiGigyaResponseDelegate.m */,
+				A28BA73E1489197D008C713F /* TiGigyaUIDelegate.h */,
+				A28BA73F1489197D008C713F /* TiGigyaUIDelegate.m */,
+			);
+			name = Delegates;
+			path = Classes/Delegates;
+			sourceTree = "<group>";
+		};
+		A2942CCF1476BB5400868112 /* GSSDK */ = {
+			isa = PBXGroup;
+			children = (
+				A2942CD01476BB5400868112 /* GSAPI.h */,
+				A2942CD11476BB5400868112 /* GSAPI.m */,
+				A2942CD21476BB5400868112 /* GSAPI_Internal.h */,
+				A2942CD31476BB5400868112 /* GSAPI_Internal.m */,
+				A2942CD41476BB5400868112 /* GSContext.h */,
+				A2942CD51476BB5400868112 /* GSContext.m */,
+				A2942CD61476BB5400868112 /* GSFBConnect */,
+				A2942CE11476BB5400868112 /* GSLogger.h */,
+				A2942CE21476BB5400868112 /* GSLogger.m */,
+				A2942CE31476BB5400868112 /* GSObject.h */,
+				A2942CE41476BB5400868112 /* GSObject.m */,
+				A2942CE51476BB5400868112 /* GSRequest.h */,
+				A2942CE61476BB5400868112 /* GSRequest.m */,
+				A2942CE71476BB5400868112 /* GSResponse.h */,
+				A2942CE81476BB5400868112 /* GSResponse.m */,
+				A2942CE91476BB5400868112 /* GSSession.h */,
+				A2942CEA1476BB5400868112 /* GSSession.m */,
+				A2942CEB1476BB5400868112 /* GSWebViewController.h */,
+				A2942CEC1476BB5400868112 /* GSWebViewController.m */,
+				A2942CED1476BB5400868112 /* GSWebViewController.xib */,
+				A2942CEE1476BB5400868112 /* JSON */,
+			);
+			path = GSSDK;
+			sourceTree = "<group>";
+		};
+		A2942CD61476BB5400868112 /* GSFBConnect */ = {
+			isa = PBXGroup;
+			children = (
+				A2942CD71476BB5400868112 /* GSFacebook.h */,
+				A2942CD81476BB5400868112 /* GSFacebook.m */,
+				A2942CD91476BB5400868112 /* GSFBConnect.h */,
+				A2942CDA1476BB5400868112 /* GSFBDialog.bundle */,
+				A2942CDB1476BB5400868112 /* GSFBDialog.h */,
+				A2942CDC1476BB5400868112 /* GSFBDialog.m */,
+				A2942CDD1476BB5400868112 /* GSFBLoginDialog.h */,
+				A2942CDE1476BB5400868112 /* GSFBLoginDialog.m */,
+				A2942CDF1476BB5400868112 /* GSFBRequest.h */,
+				A2942CE01476BB5400868112 /* GSFBRequest.m */,
+			);
+			path = GSFBConnect;
+			sourceTree = "<group>";
+		};
+		A2942CEE1476BB5400868112 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				A2942CEF1476BB5400868112 /* JSON.h */,
+				A2942CF01476BB5400868112 /* NSObject+TiGigyaSBJSON.h */,
+				A2942CF11476BB5400868112 /* NSObject+TiGigyaSBJSON.m */,
+				A2942CF21476BB5400868112 /* NSString+TiGigyaSBJSON.h */,
+				A2942CF31476BB5400868112 /* NSString+TiGigyaSBJSON.m */,
+				A2942CF41476BB5400868112 /* TiGigyaSBJSON.h */,
+				A2942CF51476BB5400868112 /* TiGigyaSBJSON.m */,
+				A2942CF61476BB5400868112 /* TiGigyaSBJsonBase.h */,
+				A2942CF71476BB5400868112 /* TiGigyaSBJsonBase.m */,
+				A2942CF81476BB5400868112 /* TiGigyaSBJsonParser.h */,
+				A2942CF91476BB5400868112 /* TiGigyaSBJsonParser.m */,
+				A2942CFA1476BB5400868112 /* TiGigyaSBJsonWriter.h */,
+				A2942CFB1476BB5400868112 /* TiGigyaSBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* TiGigya_Prefix.pch in Headers */,
+				24DD6CF91134B3F500162E58 /* TiGigyaModule.h in Headers */,
+				24DE9E1111C5FE74003F90F6 /* TiGigyaModuleAssets.h in Headers */,
+				A2942CFC1476BB5400868112 /* GSAPI.h in Headers */,
+				A2942CFE1476BB5400868112 /* GSAPI_Internal.h in Headers */,
+				A2942D001476BB5400868112 /* GSContext.h in Headers */,
+				A2942D021476BB5400868112 /* GSFacebook.h in Headers */,
+				A2942D041476BB5400868112 /* GSFBConnect.h in Headers */,
+				A2942D051476BB5400868112 /* GSFBDialog.h in Headers */,
+				A2942D071476BB5400868112 /* GSFBLoginDialog.h in Headers */,
+				A2942D091476BB5400868112 /* GSFBRequest.h in Headers */,
+				A2942D0B1476BB5400868112 /* GSLogger.h in Headers */,
+				A2942D0D1476BB5400868112 /* GSObject.h in Headers */,
+				A2942D0F1476BB5400868112 /* GSRequest.h in Headers */,
+				A2942D111476BB5400868112 /* GSResponse.h in Headers */,
+				A2942D131476BB5400868112 /* GSSession.h in Headers */,
+				A2942D151476BB5400868112 /* GSWebViewController.h in Headers */,
+				A2942D171476BB5400868112 /* JSON.h in Headers */,
+				A2942D181476BB5400868112 /* NSObject+TiGigyaSBJSON.h in Headers */,
+				A2942D1A1476BB5400868112 /* NSString+TiGigyaSBJSON.h in Headers */,
+				A2942D1C1476BB5400868112 /* TiGigyaSBJSON.h in Headers */,
+				A2942D1E1476BB5400868112 /* TiGigyaSBJsonBase.h in Headers */,
+				A2942D201476BB5400868112 /* TiGigyaSBJsonParser.h in Headers */,
+				A2942D221476BB5400868112 /* TiGigyaSBJsonWriter.h in Headers */,
+				A2EA0FC61485978B00D18F3A /* Util.h in Headers */,
+				A2EA0FDA1485B05500D18F3A /* Constants.h in Headers */,
+				A28BA7401489197D008C713F /* TiGigyaAddConnectionsUIDelegate.h in Headers */,
+				A28BA7421489197D008C713F /* TiGigyaDelegate.h in Headers */,
+				A28BA7441489197D008C713F /* TiGigyaEventDelegate.h in Headers */,
+				A28BA7461489197D008C713F /* TiGigyaLoginUIDelegate.h in Headers */,
+				A28BA7481489197D008C713F /* TiGigyaResponseDelegate.h in Headers */,
+				A28BA74A1489197D008C713F /* TiGigyaUIDelegate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* gigya */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "gigya" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gigya;
+			productName = gigya;
+			productReference = D2AAC07E0554694100DB518D /* libTiGigya.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "gigya" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* gigya */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* gigya */,
+				24416B8111C4CA220047AFDD /* Build & Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24416B8011C4CA220047AFDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\npython \"${TITANIUM_SDK}/titanium.py\" run --dir=\"${PROJECT_DIR}\"\nexit $?\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24DD6CFA1134B3F500162E58 /* TiGigyaModule.m in Sources */,
+				24DE9E1211C5FE74003F90F6 /* TiGigyaModuleAssets.m in Sources */,
+				A2942CFD1476BB5400868112 /* GSAPI.m in Sources */,
+				A2942CFF1476BB5400868112 /* GSAPI_Internal.m in Sources */,
+				A2942D011476BB5400868112 /* GSContext.m in Sources */,
+				A2942D031476BB5400868112 /* GSFacebook.m in Sources */,
+				A2942D061476BB5400868112 /* GSFBDialog.m in Sources */,
+				A2942D081476BB5400868112 /* GSFBLoginDialog.m in Sources */,
+				A2942D0A1476BB5400868112 /* GSFBRequest.m in Sources */,
+				A2942D0C1476BB5400868112 /* GSLogger.m in Sources */,
+				A2942D0E1476BB5400868112 /* GSObject.m in Sources */,
+				A2942D101476BB5400868112 /* GSRequest.m in Sources */,
+				A2942D121476BB5400868112 /* GSResponse.m in Sources */,
+				A2942D141476BB5400868112 /* GSSession.m in Sources */,
+				A2942D161476BB5400868112 /* GSWebViewController.m in Sources */,
+				A2942D191476BB5400868112 /* NSObject+TiGigyaSBJSON.m in Sources */,
+				A2942D1B1476BB5400868112 /* NSString+TiGigyaSBJSON.m in Sources */,
+				A2942D1D1476BB5400868112 /* TiGigyaSBJSON.m in Sources */,
+				A2942D1F1476BB5400868112 /* TiGigyaSBJsonBase.m in Sources */,
+				A2942D211476BB5400868112 /* TiGigyaSBJsonParser.m in Sources */,
+				A2942D231476BB5400868112 /* TiGigyaSBJsonWriter.m in Sources */,
+				A2EA0FC71485978B00D18F3A /* Util.m in Sources */,
+				A2EA0FDB1485B05500D18F3A /* Constants.m in Sources */,
+				A28BA7411489197D008C713F /* TiGigyaAddConnectionsUIDelegate.m in Sources */,
+				A28BA7431489197D008C713F /* TiGigyaDelegate.m in Sources */,
+				A28BA7451489197D008C713F /* TiGigyaEventDelegate.m in Sources */,
+				A28BA7471489197D008C713F /* TiGigyaLoginUIDelegate.m in Sources */,
+				A28BA7491489197D008C713F /* TiGigyaResponseDelegate.m in Sources */,
+				A28BA74B1489197D008C713F /* TiGigyaUIDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* gigya */;
+			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TiGigya_Prefix.pch";
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = "TiGigya";
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				DSTROOT = "/tmp/TiGigya.dst";
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TiGigya_Prefix.pch";
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = "TiGigya";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = "/tmp/TiGigya.dst";
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TiGigya_Prefix.pch";
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = "TiGigya";
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				DSTROOT = "/tmp/TiGigya.dst";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TiGigya_Prefix.pch";
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = "TiGigya";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = "/tmp/TiGigya.dst";
+			};
+			name = Release;
+		};
+		24416B8211C4CA220047AFDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build & test";
+			};
+			name = Debug;
+		};
+		24416B8311C4CA220047AFDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Build & test";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "gigya" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "gigya" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24416B8211C4CA220047AFDD /* Debug */,
+				24416B8311C4CA220047AFDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
